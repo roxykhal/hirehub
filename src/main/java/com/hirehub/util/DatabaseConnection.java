@@ -10,12 +10,13 @@ import java.util.Properties;
 public class DatabaseConnection {
     private static Connection connection = null;
 
+    //check connection is established
     public static Connection getConnection() {
         if (connection != null) {
             return connection;
         } else {
             try {
-                Properties prop = new Proprties();
+                Properties prop = new Properties();
                 InputStream inputStream = DatabaseConnection.class.getClassLoader().getResourceAsStream(name: "database.properties");
                 prop.load(inputStream);
 
