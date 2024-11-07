@@ -1,5 +1,7 @@
-public class CandidateAnswers() {
+package com.hirehub.model;
 
+
+    public class CandidateAnswers {
     private int applicationID;
     private int questionID;
     private String answer;
@@ -7,12 +9,12 @@ public class CandidateAnswers() {
 
     //constructor 
 
-    public class CandidateAnswers () {
+    public CandidateAnswers() {
 
 
     }
 
-    public class CandidateAnswers(int applicationID, int questionID, String answer) {
+    public CandidateAnswers(int applicationID, int questionID, String answer) {
         this.applicationID = applicationID;
         this.questionID = questionID;
         this.answer = answer;

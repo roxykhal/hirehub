@@ -1,3 +1,7 @@
+package com.hirehub.model;
+
+import java.util.Date;
+
 public class Candidates {
     private String firstName;
     private String lastName;
@@ -62,7 +66,7 @@ public class Candidates {
         this.resumeURL = resumeURL;
     }
 
-    public date getregistrationDate() {
+    public Date getregistrationDate() {
         return registrationDate;
     
     }

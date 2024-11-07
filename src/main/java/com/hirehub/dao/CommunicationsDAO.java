@@ -1,7 +1,8 @@
 //information for what operations can be performed on communicationsdab table
 
-import com.hirehub.model.Commuications;
-import.java.util.list;
+package com.hirehub.dao;
+import com.hirehub.model.Communications;
+import java.util.List;
 
 //complete abstract class
 public interface CommunicationsDAO {

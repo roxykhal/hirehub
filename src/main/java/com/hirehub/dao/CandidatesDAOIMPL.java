@@ -1,7 +1,7 @@
 //provides actual implementations of methods declared in candidatesDAO file.
 
-import com.hirehub.model.Communications;
+package com.hirehub.dao;
 
-public class CommunicationsDAOImpl {
+public class CandidatesDAOIMPL {
     
 }

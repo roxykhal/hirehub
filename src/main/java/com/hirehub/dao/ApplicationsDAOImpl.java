@@ -1,6 +1,7 @@
 //provides actual implementations of methods declared in applicationsDAO file.
 
-import com.hirehub.model.Applications;
+
+package com.hirehub.dao;
 
 public class ApplicationsDAOImpl {
     

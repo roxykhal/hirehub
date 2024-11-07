@@ -1,4 +1,4 @@
-import com.hirehub.model.Interviews;
+package com.hirehub.dao;
 
 public class InterviewsDAOImpl {
     

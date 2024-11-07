@@ -1,19 +1,21 @@
+package com.hirehub.model;
+import java.util.Date;
+
+
 public class Offers {
 
     private int offerID;
     private int applicationID;
     private boolean salary;
-    private LocalDateTime startDate;
-    private String status('Pending', 'Accepted', 'Rejected')
-
+    private Date startDate;
+    private String status;
     //constructor
 
-    public class Offers() {
-
+    public Offers() {
 
     }
 
-    public class Offers(int offerID, int applicationID, boolean salary, LocalDateTime startDate, String status) {
+    public Offers(int offerID, int applicationID, boolean salary, Date startDate, String status) {
         this.offerID = offerID;
         this.applicationID = applicationID;
         this.salary = salary;
@@ -28,7 +30,7 @@ public class Offers {
         return offerID;
     }
 
-    oublic void setofferID(int offerID) {
+    public void setofferID(int offerID) {
         this.offerID = offerID;
     }
 
@@ -45,16 +47,24 @@ public class Offers {
         return salary;
     }
 
-    public LocalDateTime getstartDate() {
+    public void setsalary(boolean salary) {
+        this.salary = salary;
+    }
+
+    public Date getstartDate() {
         return startDate;
     }
 
-    public void setstartDate() {
-        this.startDate = startDate;
+    public void setstartDate(Date starDate) {
+        this.startDate = starDate;
     }
 
     public String getstatus() {
         return status;
+    }
+
+    public void setstatus(String status) {
+        this.status = status;
     }
 
     

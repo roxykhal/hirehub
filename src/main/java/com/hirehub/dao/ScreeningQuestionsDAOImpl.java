@@ -1,6 +1,6 @@
 //provides actual implementations of methods declared in screeningQuestionsDAO file.
+package com.hirehub.dao;
 
-import com.hirehub.model.ScreeningQuestions;
 
 public class ScreeningQuestionsDAOImpl {
     

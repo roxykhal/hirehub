@@ -1,3 +1,6 @@
+package com.hirehub.model;
+
+
 public class ScreeningQuestions {
 
     private int jobID;
@@ -5,11 +8,11 @@ public class ScreeningQuestions {
 
     //constructor
 
-    public class ScreeningQuestions() {
+    public ScreeningQuestions() {
 
     }
 
-    public class ScreeningQuestions(int jobID, String text) {
+    public ScreeningQuestions(int jobID, String text) {
         this.jobID = jobID;
         this.text = text;
     }

@@ -1,4 +1,7 @@
-import com.hirehub.model.Offers;
+
+package com.hirehub.dao;
+
+
 
 public class OffersDAOImpl {
     

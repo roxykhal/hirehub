@@ -1,10 +1,12 @@
+package com.hirehub.dao;
+
 //information for what operations can be performed on interviews table
 
 import com.hirehub.model.Interviews;
-import.java.util.list;
+import java.util.List;
 
 //complete abstract class
-public interface CandidatesDAO {
+public interface InterviewsDAO {
     void add(Interviews interviews);
     void update(Interviews interviews);
     void delete(Interviews interviews);

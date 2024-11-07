@@ -1,7 +1,7 @@
 //information for what operations can be performed on Applications table
-
+package com.hirehub.dao;
 import com.hirehub.model.Applications;
-import.java.util.list;
+import java.util.List;
 
 //complete abstract class
 public interface ApplicationsDAO {

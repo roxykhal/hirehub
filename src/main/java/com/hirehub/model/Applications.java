@@ -1,9 +1,13 @@
+package com.hirehub.model;
+import java.util.Date;
+
+
 public class Applications {
 
 private int jobID;
 private int candidateID;
 private Date applicationDate;
-private String status('Received', 'Screening', 'Interview', 'Offer', 'Hired', 'Rejected')
+private String status;
 
 //Constructors
 
@@ -14,9 +18,9 @@ public Applications() {
 public Applications(int jobID, int candidateID, Date applicationDate, String status) {
     this.jobID = jobID;
     this.candidateID = candidateID;
-    this.applicationDate;
-    this.status;
-}
+    this.applicationDate = applicationDate;
+    this.status = status;
+} 
 
 //getters and setters
 

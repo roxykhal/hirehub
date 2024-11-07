@@ -1,10 +1,12 @@
+package com.hirehub.model;
+
 public class Users {
 
     private int userID;
     private String userName;
     private String password;
     private String email;
-    private String role('Recruiter', 'Hiring Manager', 'Interviewer', 'Admin');
+    private String role;
 
     //constructors
 
@@ -55,4 +57,11 @@ public class Users {
         this.role = role;
     }
 
+    public String getpassword() {
+        return password;
+    } 
+
+    public void setpassword(String password) {
+        this.password = password;
+    }
 }

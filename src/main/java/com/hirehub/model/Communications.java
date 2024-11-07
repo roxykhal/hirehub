@@ -1,20 +1,25 @@
+package com.hirehub.model;
+
+import java.util.Date;
+
+
 public class Communications {
 
     private int applicationID;
     private int senderID;
     private int recipientID;
     private String message;
-    private LocalDateTime sentDate;
-    private String type ('Email', 'Phone', 'In-person')
+    private Date sentDate;
+    private String type;
 
 
     //constructor
 
-    public class Communications() {
+    public Communications() {
 
     }
 
-    public class Communications(int applicationID, int senderID, int recipientID, String message, LocalDateTime sentDate, String type) {
+    public Communications(int applicationID, int senderID, int recipientID, String message, Date sentDate, String type) {
         this.applicationID = applicationID;
         this.senderID = senderID;
         this.recipientID = recipientID;
@@ -30,7 +35,7 @@ public class Communications {
     }
 
     public void setapplicationID(int applicationID) {
-        this.applicationID;
+        this.applicationID = applicationID;
     }
 
     public int getsenderID() {
@@ -47,7 +52,7 @@ public class Communications {
 
     public void setrecipientID(int recipientID) {
         this.recipientID = recipientID;
-}
+    }
 
     public String getmessage() {
         return message;
@@ -57,11 +62,11 @@ public class Communications {
         this.message = message;
     }
 
-    public LocalDateTime getsentDate() {
+    public Date getsentDate() {
         return sentDate;
     }
 
-    public void setsendDate(LocalDateTime sentDate) {
+    public void setsendDate(Date sentDate) {
         this.sentDate = sentDate;
     }
 
@@ -72,3 +77,6 @@ public class Communications {
     public void settype(String type) {
         this.type = type;
     }
+
+
+}

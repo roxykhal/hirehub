@@ -1,10 +1,13 @@
+package com.hirehub.model;
+import java.util.Date;
+
 public class Interviews {
 
     private int interviewID;
     private int applicationID;
     private Date interviewDate;
     private String feedback;
-    private String status('Scheduled', 'Completed', 'Cancelled');
+    private String status;
 
     //constructor
 
@@ -23,7 +26,7 @@ public class Interviews {
     //getters and setters 
 
     public int getinterviewID() {
-        return getinterviewID;
+        return interviewID;
     }
 
     public void setinterviewID(int interviewID) {
@@ -31,7 +34,7 @@ public class Interviews {
     }
 
     public int getapplicationID() {
-        return getapplicationID;
+        return applicationID;
     }
 
     public void setapplicationID(int applicationID) {
@@ -43,7 +46,7 @@ public class Interviews {
     }
 
     public void setinterviewDate(Date interviewDate) {
-        this.interviewDate = interviewDate
+        this.interviewDate = interviewDate;
  
     }
 
