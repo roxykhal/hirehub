@@ -1,5 +1,4 @@
 //information for what operations can be performed on candidates table
-
 package com.hirehub.dao;
 import com.hirehub.model.Candidates;
 import java.util.List;
@@ -10,7 +9,8 @@ public interface CandidatesDAO {
     void update(Candidates candidates);
     void delete(Candidates candidates);
 
-    Candidates getByID(int id);
+    Candidates getID(int id);
+    Candidates setId(int id); //? not sure check over
 
     List<Candidates>getAll();
 

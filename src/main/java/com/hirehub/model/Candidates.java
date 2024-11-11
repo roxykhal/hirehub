@@ -9,18 +9,20 @@ public class Candidates {
     private int phoneNumber; 
     private String resumeURL;
     private Date registrationDate;
+    private int id;
 
 // Constructors
     public Candidates() {
     }
 
-    public Candidates(String firstName, String lastName, String emailAddress, int phoneNumber, String resumeURL, Date registrationDate) {
+    public Candidates(int id, String firstName, String lastName, String emailAddress, int phoneNumber, String resumeURL, Date registrationDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
         this.phoneNumber = phoneNumber;
         this.resumeURL = resumeURL;
         this.registrationDate = registrationDate;
+        this.id = id;
     }
 
     //getters and setters
@@ -73,6 +75,14 @@ public class Candidates {
 
     public void setregistrationDate(Date registrationDate) {
         this.registrationDate = registrationDate;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId (int id) {
+        this.id = id;
     }
 
 
