@@ -9,7 +9,7 @@ public interface CandidatesDAO {
     void update(Candidates candidates);
     void delete(Candidates candidates);
 
-    Candidates getID(int id);
+    Candidates getId(int id);
     Candidates setId(int id); //? not sure check over
 
     List<Candidates>getAll();

@@ -18,6 +18,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
     }
 
     @Override
+    //inserts a new candidate record into database
     public void add(Candidates candidates) {
         String sql = "INSERT INTO candidates (firstName, lastName, emailAddress, phoneNumber, resumeURL, registrationDate) VALUES (?, ?, ?, ?, ?, ?)";
         try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
@@ -39,16 +40,17 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                 if (generatedKeys.next()) {
                     //sets the generated ID onto entity object, candidate object now has id populated
                     candidates.setId(generatedKeys.getInt(1));
+                } else {
+                    throw new SQLException("Creatin=g candidate failed, no ID obtained.");
                 }
+            }
 
         }
-
         catch(SQLException e) {
             e.printStackTrace();
         }
     }
-    }
-
+    
     @Override
     public Candidates getId(int id) {
         String sql = "SELECT * FROM candidates WHERE id = ?";
@@ -64,29 +66,42 @@ public class CandidatesDAOimpl implements CandidatesDAO {
         return null;
         }
 
+        @Override
+        public List<Candidates> getAll() {
+            List<Candidates>candidates = new ArrayList<>();
+            String sql = "SELECT * FROM candidates ORDER BY regristration_date DESC";
+
+            try (Statement stmt = connection.createStatement();
+                ResultSet rs = stmt.executeQuery(sql)) {
+
+                    while(rs.next()) {
+                        candidates.add(extractCandidatesFromResultSet(rs));
+                    } 
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
+                    return candidates;
+            }
+
+            @Override
+            
+            
+
+       //helper method to create entity from result set
+       
         private Candidates extractCandidatesFromResultSet(ResultSet rs) throws SQLException {
             Candidates candidates = new Candidates();
             candidates.setId(rs.getInt("id"));
+            candidates.setfirstName(rs.getString("first_name"));
+            candidates.setlastName((rs.getString("last_name")));
+            candidates.setemailAddress(rs.getString("email_address"));
+            candidates.setphoneNumber(rs.getInt("phone_number"));
+            candidates.setresumeURL(rs.getString("resume_url"));
+            candidates.setregistrationDate(rs.getDate("registration_date"));
+            return candidates;
 
-
-
-    
-        
-        
-        
-        
         }
 
 
-
-
-
-
-
-
-
-
-
-
 }
-}
+
