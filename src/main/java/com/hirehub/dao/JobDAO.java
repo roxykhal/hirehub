@@ -9,7 +9,7 @@ public interface JobDAO {
     void update(Job job);
     void delete(int id);
 
-    Job getByID(int id);
+    Job getId(int id);
 
     List<Job>getAll();
 

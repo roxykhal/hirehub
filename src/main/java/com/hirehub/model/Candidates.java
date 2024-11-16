@@ -10,12 +10,14 @@ public class Candidates {
     private String resumeURL;
     private Date registrationDate;
     private int id;
+    private String status;
+
 
 // Constructors
     public Candidates() {
     }
 
-    public Candidates(int id, String firstName, String lastName, String emailAddress, int phoneNumber, String resumeURL, Date registrationDate) {
+    public Candidates(int id, String status, String firstName, String lastName, String emailAddress, int phoneNumber, String resumeURL, Date registrationDate) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.emailAddress = emailAddress;
@@ -23,6 +25,8 @@ public class Candidates {
         this.resumeURL = resumeURL;
         this.registrationDate = registrationDate;
         this.id = id;
+        this.status = status;
+        
     }
 
     //getters and setters
@@ -33,6 +37,16 @@ public class Candidates {
 
     public void setfirstName(String firstName) {
         this.firstName = firstName;
+    }
+
+    
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getlastName() {

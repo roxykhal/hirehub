@@ -16,13 +16,14 @@ public class Job {
     }
 
     public Job(String title, String description, String requirements, Date postingDate, Date closingDate,
-            String status) {
+            String status, int id) {
         this.title = title;
         this.description = description;
         this.requirements = requirements;
         this.postingDate = postingDate;
         this.closingDate = closingDate;
         this.status = status;
+        this.id = id;
     }
 
     // Getters and Setters

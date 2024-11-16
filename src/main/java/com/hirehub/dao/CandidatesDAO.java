@@ -7,10 +7,14 @@ import java.util.List;
 public interface CandidatesDAO {
     void add(Candidates candidates);
     void update(Candidates candidates);
-    void delete(Candidates candidates);
+    void delete(int id);
 
     Candidates getId(int id);
-    Candidates setId(int id); //? not sure check over
+
+    Candidates getByEmail(String email);
+    Candidates getByStatus(String status);
+
+    
 
     List<Candidates>getAll();
 
