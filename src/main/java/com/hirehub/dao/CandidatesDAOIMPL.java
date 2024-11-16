@@ -1,17 +1,20 @@
 //provides actual implementations of methods declared in candidatesDAO file.
 package com.hirehub.dao;
 import com.hirehub.model.Candidates;
-import com.hirehub.util.DatabaseConnection;
 import java.util.ArrayList;
 import java.sql.*;
-//will import all sql classes 
-
+import java.sql.ResultSet;
 import java.util.List;
+import com.hirehub.util.DatabaseConnection;
 //store and return list of job objects
 
 
 public class CandidatesDAOimpl implements CandidatesDAO {
     private Connection connection; //create instance of connection
+
+    public CandidatesDAOimpl() {
+        this.connection = DatabaseConnection.getConnection();
+    }
     
 
     @Override
@@ -87,7 +90,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
 
             @Override
             public void update(Candidates candidates){
-                String sql = "UPDATE candidates SET first_name = ?, last_name = ?, email_address = ?, phone_number = ?, resume_url = ?, status = ? " + "WHERE candidate_id = ? ";
+                String sql = "UPDATE candidates SET first_name = ?, last_name = ?, email_address = ?, phone_number = ?, resume_url = ?, status = ?  + WHERE candidate_id = ? ";
 
                 try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
                     pstmt.setString(1, candidates.getfirstName());
@@ -97,9 +100,9 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                     pstmt.setInt(5, candidates.getId());
                     pstmt.setString(6, candidates.getStatus());
                     pstmt.setInt(7, candidates.getphoneNumber());
-
                     pstmt.executeUpdate();
-                }catch(SQLException e) {
+                
+                    }catch(SQLException e) {
                     e.printStackTrace();
                 } 
             }
@@ -163,13 +166,13 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                     
                     // Populate the Candidate object with values from the ResultSet
                     candidates.setId(rs.getInt("candidate_id"));
-                    candidates.setfirstName(rs.getString("firstName"));
-                    candidates.setlastName(rs.getString("lastName"));
-                    candidates.setemailAddress(rs.getString("emailAddress"));
-                    candidates.setphoneNumber(rs.getInt("phoneNumber")); 
-                    candidates.setresumeURL(rs.getString("resumeURL"));
+                    candidates.setfirstName(rs.getString("first_name"));
+                    candidates.setlastName(rs.getString("last_name"));
+                    candidates.setemailAddress(rs.getString("email_address"));
+                    candidates.setphoneNumber(rs.getInt("phone_number")); 
+                    candidates.setresumeURL(rs.getString("resume_url"));
                     candidates.setStatus(rs.getString("status"));
-                    candidates.setregistrationDate(rs.getDate("registrationDate")); 
+                    candidates.setregistrationDate(rs.getDate("registration_date")); 
                     
                     return candidates;  // Return the populated Candidates object
                 }

@@ -2,8 +2,7 @@
 
 package com.hirehub.dao;
 import com.hirehub.model.Job;
-//import com.hirehub.util.DatabaseConnection;
-import java.sql.ResultSet;
+import com.hirehub.util.DatabaseConnection;
 
 import java.sql.*;
 //will import all sql classes 
@@ -14,6 +13,10 @@ import java.util.List;
 
 public class JobDAOIMPL implements JobDAO {
     private Connection connection; //create instance of connection
+
+     public void jobDAOimpl() {
+        this.connection = DatabaseConnection.getConnection();
+    }
 
 
     @Override //
