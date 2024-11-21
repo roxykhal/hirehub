@@ -2,7 +2,7 @@ package com.hirehub.model;
 
 public class Users {
 
-    private int userID;
+    private int userId;
     private String userName;
     private String password;
     private String email;
@@ -14,8 +14,8 @@ public class Users {
 
     }
 
-    public Users(int userID, String userName, String password, String email, String role){
-        this.userID = userID;
+    public Users(int userId, String userName, String password, String email, String role){
+        this.userId = userId;
         this.userName = userName;
         this.password = password;
         this.email = email;
@@ -24,12 +24,12 @@ public class Users {
 
     //getters and setters
 
-    public int getuserID (){
-        return userID;
+    public int getuserId (){
+        return userId;
     }
 
-    public void setuserID(int userID) {
-        this.userID = userID;
+    public void setuserId(int userId) {
+        this.userId = userId;
     }
 
     public String getuserName() {
