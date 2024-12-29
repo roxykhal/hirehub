@@ -18,6 +18,7 @@ public class UsersDAOIMPL implements UsersDAO {
     @Override
     public void add(Users users) {
         String sql = "INSERT INTO USERS (userName, password, role, email) VALUES (?, ?, ?, ?, ?)";
+        
         try (PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, users.getuserName());
             pstmt.setString(2, users.getpassword());

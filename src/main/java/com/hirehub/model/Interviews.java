@@ -1,3 +1,4 @@
+// model represents data structure, contains attributes and methods
 package com.hirehub.model;
 import java.util.Date;
 

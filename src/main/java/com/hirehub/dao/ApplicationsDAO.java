@@ -1,4 +1,4 @@
-//information for what operations can be performed on Applications table
+//information for what operations can be performed on Applications table - crud
 package com.hirehub.dao;
 import com.hirehub.model.Applications;
 import java.util.List;
