@@ -28,7 +28,7 @@ public void getAllApplications(int id) {
     applicationsDAO.getByID(id);
 }
 
-public List<Applications> getAllApplications() {
+public List<Applications> getApplicationByIds() {
     return applicationsDAO.getAll(); 
 }
 
