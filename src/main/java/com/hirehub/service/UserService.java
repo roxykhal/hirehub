@@ -28,6 +28,10 @@ public class UserService {
         usersDAO.getuserId(0);
     }
 
+    public List<Users>getAllUsers() {
+        return usersDAO.getAll();
+    }
+
 
 
 
