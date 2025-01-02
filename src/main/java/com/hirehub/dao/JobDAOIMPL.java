@@ -3,7 +3,6 @@
 package com.hirehub.dao;
 import com.hirehub.model.Job;
 import com.hirehub.util.DatabaseConnection;
-
 import java.sql.*;
 //will import all sql classes 
 import java.util.ArrayList;
@@ -20,8 +19,9 @@ public class JobDAOIMPL implements JobDAO {
 
 
     @Override //
+
     public void add(Job job) {
-        String sql = "INSERT INTO jobs (title, description, requirements, posting_date, closing_date, status) VALUES (?, ?, ?, ?, ?, ?)"; //placeholder for those values as it cannot be hardcoded.
+        String sql = "INSERT INTO jobs (title, description, requirements, posting_date, closing_date, status, id) VALUES (?, ?, ?, ?, ?, ?, ?)"; //placeholder for those values as it cannot be hardcoded.
         try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, job.getTitle());
             pstmt.setString(2, job.getDescription());

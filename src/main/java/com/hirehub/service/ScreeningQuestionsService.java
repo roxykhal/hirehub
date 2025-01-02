@@ -25,11 +25,11 @@ public void deleteScreeningQuestions(int id) {
 }
 
 public void getScreeningQuestionsById(int id) {
-    screeningQuestionsDAO.getByID(id)
+    screeningQuestionsDAO.getByID(id);
 }
 
 public List<ScreeningQuestions> getAllScreeningQuestions() {
-    return screeningQuestionsDAO.getAll()
+    return screeningQuestionsDAO.getAll();
 }
 
 }

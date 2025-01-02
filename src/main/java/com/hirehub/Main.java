@@ -12,7 +12,7 @@ public class Main {
         JobService jobService = new JobService();
 
         //Create a new job
-        Job newJob = new Job("Software Developer", "Develops application", "Java", new Date(), null, "Open");
+        Job newJob = new Job("Software Developer", "Develops application", "Java", new Date(), new Date(),  "Open");
         jobService.createJob(newJob);
         System.out.println("New job created with ID: " + newJob.getId());
 
