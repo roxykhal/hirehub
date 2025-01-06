@@ -22,7 +22,7 @@ public void updateInterviews() {
 }
 
 public void deleteInterviews(int id) {
-    interviewsDAO.delete(null);
+    interviewsDAO.delete(id);
 }
 
 public void getInterviewById(int id) {

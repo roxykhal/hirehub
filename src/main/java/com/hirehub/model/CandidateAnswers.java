@@ -6,11 +6,9 @@ package com.hirehub.model;
     private int questionID;
     private String answer;
 
-
     //constructor 
 
     public CandidateAnswers() {
-
 
     }
 

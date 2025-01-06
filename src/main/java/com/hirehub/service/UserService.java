@@ -12,7 +12,7 @@ public class UserService {
 
     }
 
-    public void CreateUsers(Users users) {
+    public void createUsers(Users users) {
         usersDAO.add(users);
     }
 
