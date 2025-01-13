@@ -65,7 +65,10 @@ public class Job implements Serializable {
     }
 
     public void setDescription(String description) {
-        this.description = description;
+        if(description == null || description.trim().isEmpty()) {
+            throw new IllegalArgumentException("Job description cannot be empty");
+        }
+        this.description = description.trim();
     }
 
     public String getRequirements() {
@@ -73,31 +76,33 @@ public class Job implements Serializable {
     }
 
     public void setRequirements(String requirements) {
-        this.requirements = requirements;
+        if(requirements == null || requirements.trim().isEmpty()) {
+            throw new IllegalArgumentException("Job requirements cannot be empty");
+    }
+    this.requirements = requirements.trim();
     }
 
     public Date getPostingDate() {
-        return postingDate;
+        return postingDate != null ? new Date(postingDate.getTime()) : null;
     }
 
     public void setPostingDate(Date postingDate) {
-        this.postingDate = postingDate;
+        this.postingDate = postingDate != null ? new Date(postingDate.getTime()) : null;
+        
     }
 
+   
     public Date getClosingDate() {
-        return closingDate;
+        return closingDate != null ? new Date(closingDate.getTime()) : null;
     }
 
     public void setClosingDate(Date closingDate) {
-        this.closingDate = closingDate;
+        if (closingDate != null && postingDate != null && closingDate.before(postingDate)) {
+            throw new IllegalArgumentException("Closing date cannot be before posting date");
+        }
+        this.closingDate = closingDate != null ? new Date(closingDate.getTime()) : null;
     }
 
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
+    
 
 }
