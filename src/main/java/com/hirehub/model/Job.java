@@ -1,28 +1,42 @@
 package com.hirehub.model;
-
+import com.hirehub.model.Enums.jobStatus;
+import java.io.Serializable;
 import java.util.Date;
+import java.util.Objects;
 
-public class Job {
-    private int id;
+
+public class Job implements Serializable {
+
+    //unique identifier to match class version during deserialization
+
+    private static final long serialVersionUID = 1L;
+
+    private Integer id;
     private String title;
     private String description;
     private String requirements;
     private Date postingDate;
     private Date closingDate;
-    private String status;
+    private jobStatus status;
+    private Date createdAt;
+    private Date updatedAt;
+    private Integer createdBy;
+    private Integer updatedBy;
 
     // Constructors
     public Job() {
+        this.createdAt = new Date();
+        this.status = jobStatus.DRAFT;
     }
 
     public Job(String title, String description, String requirements, Date postingDate, Date closingDate,
-            String status) {
-        this.title = title;
-        this.description = description;
-        this.requirements = requirements;
-        this.postingDate = postingDate;
-        this.closingDate = closingDate;
-        this.status = status;
+            jobStatus status) {
+        this();        
+        setTitle(title);
+        setDescription(description);
+        setRequirements(requirements);
+        setPostingDate(postingDate);
+        setClosingDate(closingDate);
         
     }
 
@@ -40,7 +54,10 @@ public class Job {
     }
 
     public void setTitle(String title) {
-        this.title = title;
+        if(title == null || title.trim().isEmpty()) {
+            throw new IllegalArgumentException("Job title cannot be empty");
+        }
+        this.title = title.trim();
     }
 
     public String getDescription() {
