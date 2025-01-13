@@ -1,5 +1,6 @@
 package com.hirehub;
 import com.hirehub.model.Candidates;
+import com.hirehub.model.Interviews;
 import com.hirehub.model.Job;
 import com.hirehub.model.Users;
 import com.hirehub.service.JobService;
@@ -9,6 +10,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 import com.hirehub.service.CandidateService;
+import com.hirehub.service.InterviewsService;
 
 
 public class Main {
@@ -16,6 +18,8 @@ public class Main {
     private static JobService jobService = new JobService();
     private static CandidateService candidateService = new CandidateService();
     private static UserService userService = new UserService();
+    private static InterviewsService interviewsService = new InterviewsService();
+
 
     private static void displayMainMenu() {
         System.out.println("HireHub Main Menu");
@@ -34,17 +38,28 @@ public class Main {
         System.out.println("3. Update Candidates");
         System.out.println("4. Delete Candidates");
         System.out.println("5. Find Candidate by ID");
-        System.out.println("1. Return to Main Menu");
+        System.out.println("6. Return to Main Menu");
     }
 
     private static void displayJobsMenu() {
         System.out.println("Job Management Menu");
         System.out.println("1. Create Job");
-        System.out.println("2. View all Job");
+        System.out.println("2. View all Jobs");
         System.out.println("3. Update Job");
         System.out.println("4. Delete Job");
         System.out.println("5. Find Job by ID");
         System.out.println("6. Return to Main Menu");
+    }
+
+    private static void displayUsersMenu() {
+        System.out.println("User Management Menu");
+        System.out.println("1. Create User");
+        System.out.println("2. View all Users");
+        System.out.println("3. Update User");
+        System.out.println("4. Delete User");
+        System.out.println("5. Find User by ID");
+        System.out.println("6. Return to Main Menu");
+
 
     }
 
@@ -117,9 +132,29 @@ public class Main {
         userService.createUsers(user);
 
         System.out.println("User created successfully!" + user.getuserId());
-    
 
     }
+
+    private static void addInterviews() {
+        System.out.println("Add new Interview");
+
+        System.out.println("Enter Interview ID");
+        int interviewID = scanner.nextInt();
+
+        System.out.println("Enter Application ID");
+        int applicationID = scanner.nextInt();
+
+        System.out.println("Enter Interview Date");
+        int interviewDate = scanner.nextInt();
+
+        System.out.println("Enter Interview Feedback");
+        String feedback = scanner.nextLine();
+
+        Interviews interview = new Interviews(interviewID, applicationID, null, feedback, feedback);
+        interviewsService.createInterviews(interviews);
+
+    }
+
 
 
 

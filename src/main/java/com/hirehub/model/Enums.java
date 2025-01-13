@@ -1,0 +1,23 @@
+package com.hirehub.model;
+
+public class Enums {
+
+    public enum jobStatus {
+        DRAFT, OPEN, CLOSED, ON_HOLD
+    }
+
+    public enum applicationStatus {
+        APPLIED, SCREENING, SHORTLISTED, INTERVIEWING, OFFERED, HIRED, REJECTED
+    }
+
+    public enum interviewStatus {
+        SCHEDULED, COMPLETED, CANCELLED, NO_SHOW
+    }
+
+    public enum UserRole {
+        ADMIN, RECRUITER, HIRING_MANAGER, INTERVIEWER
+    }
+
+
+    
+}
