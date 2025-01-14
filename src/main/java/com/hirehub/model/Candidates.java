@@ -1,33 +1,36 @@
 package com.hirehub.model;
-
 import java.util.Date;
-
-public class Candidates {
-    private String firstName;
-    private String lastName;
-    private String emailAddress;
-    private int phoneNumber; 
-    private String resumeURL;
-    private Date registrationDate;
-    private int id;
-    private String status;
+import java.util.Objects;
+import java.io.Serializable;;
 
 
 // Constructors
-    public Candidates() {
-    }
+    public class Candidates implements Serializable {
+        private static final long serialVersionUID = 1L;
 
-    public Candidates(int id, String status, String firstName, String lastName, String emailAddress, int phoneNumber, String resumeURL, Date registrationDate) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.emailAddress = emailAddress;
-        this.phoneNumber = phoneNumber;
-        this.resumeURL = resumeURL;
-        this.registrationDate = registrationDate;
-        this.id = id;
-        this.status = status;
-        
+        private Integer id;
+        private String firstName;
+        private String lastName;
+        private String email;
+        private int phoneNumber;
+        private String resumeURL;
+        private Date registrationDate;
+        private Date createdAt;
+        private Date updatedAt;
+        private candidateStatus Status;
+
+        public enum CandidateStatus {
+            ACTIVE, INACTIVE, BLACKLISTED
+        }
+
+    //default constructor 
+    public Candidates() {
+        this.registrationDate = new Date();
+        this.createdAt = new Date();
+        this.status = CandidateStatus.ACTIVE;
     }
+    
+
 
     //getters and setters
 
@@ -102,3 +105,4 @@ public class Candidates {
 
 }
 
+}

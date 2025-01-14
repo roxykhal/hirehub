@@ -103,6 +103,42 @@ public class Job implements Serializable {
         this.closingDate = closingDate != null ? new Date(closingDate.getTime()) : null;
     }
 
+    public jobStatus getStatus() {
+        return status;
+    }
+
+    public void setStatus(jobStatus status) {
+        if(status == null) {
+            throw new IllegalArgumentException("Job status cannot be null");
+        }
+        this.status = status;
+    }
+    public Date getCreatedAt() {
+        return createdAt != null ? new Date(createdAt.getTime()) : null;
+    }
+
+    protected void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt != null ? new Date(createdAt.getTime()) : null;
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt != null ? new Date(updatedAt.getTime()) : null;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt != null ? new Date(updatedAt.getTime()) : null;
+    }
+
+    public Integer getCreatedBy() {
+        return createdBy;
+    }
+
+    public void setCreatedBy(Integer updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
+    
+
     
 
 }
