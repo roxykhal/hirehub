@@ -39,7 +39,6 @@ import java.io.Serializable;;
         setphoneNumber(phoneNumber);
     }
 
-    
 
 
     //getters and setters
@@ -104,15 +103,14 @@ import java.io.Serializable;;
         this.registrationDate = registrationDate;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId (int id) {
+    public void setId (Integer id) {
         this.id = id;
     }
 
 
 }
 
-}
