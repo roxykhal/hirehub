@@ -11,7 +11,7 @@ import java.io.Serializable;;
         private Integer id;
         private String firstName;
         private String lastName;
-        private String email;
+        private String emailAddress;
         private int phoneNumber;
         private String resumeURL;
         private Date registrationDate;
@@ -31,11 +31,11 @@ import java.io.Serializable;;
     }
 
     //Constructor with required field
-    public Candidates(String firstName, String lastName, String email, int phoneNumber) {
+    public Candidates(String firstName, String lastName, String emailAdress, int phoneNumber) {
         this();
         setfirstName(firstName);
         setlastName(lastName);
-        setemailAddress(email);
+        setemailAddress(emailAddress);
         setphoneNumber(phoneNumber);
     }
 
@@ -48,8 +48,35 @@ import java.io.Serializable;;
     }
 
     public void setfirstName(String firstName) {
-        this.firstName = firstName;
+        if(firstName == null || firstName.trim().isEmpty()) {
+            throw new IllegalArgumentException("First name cannot be empty");
+            }
+            this.firstName = firstName.trim();
+        }
+
+    public String getlastName() {
+            return lastName;
+        }
+    
+    public void setlastName(String lastName) {
+        if(lastName == null || lastName.trim().isEmpty()) {
+            throw new IllegalArgumentException("Last name cannot be empty");
+            }
+            this.lastName = lastName.trim();
+        }
+
+    public String getemailAddress() {
+            return emailAddress;
+        }
+    
+    public void setemailAddress(String emailAddress) {
+            if(emailAddress == null || !emailAddress.matches("^[A-Za-z0-9+_.-]+@(.+)$")) {
+            throw new IllegalArgumentException("Invalid email format");
+        }
+        this.emailAddress = emailAddress.toLowerCase().trim();
     }
+        }
+    
 
     
 
@@ -61,22 +88,7 @@ import java.io.Serializable;;
         this.status = status;
     }
 
-    public String getlastName() {
-        return lastName;
-    }
-
-    public void setlastName(String lastName) {
-        this.lastName = lastName;
-    }
-
-    public String getemailAddress() {
-        return emailAddress;
-    }
-
-    public void setemailAddress(String emailAddress) {
-        this.emailAddress = emailAddress;
-    }
-
+ 
     public int getphoneNumber() {
         return phoneNumber;
     }
