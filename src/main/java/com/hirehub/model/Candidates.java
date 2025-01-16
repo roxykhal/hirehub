@@ -12,7 +12,7 @@ import java.io.Serializable;;
         private String firstName;
         private String lastName;
         private String emailAddress;
-        private int phoneNumber;
+        private String phoneNumber;
         private String resumeURL;
         private Date registrationDate;
         private Date createdAt;
@@ -31,7 +31,7 @@ import java.io.Serializable;;
     }
 
     //Constructor with required field
-    public Candidates(String firstName, String lastName, String emailAdress, int phoneNumber) {
+    public Candidates(String firstName, String lastName, String emailAdress, String phoneNumber) {
         this();
         setfirstName(firstName);
         setlastName(lastName);
@@ -75,45 +75,71 @@ import java.io.Serializable;;
         }
         this.emailAddress = emailAddress.toLowerCase().trim();
     }
-        }
-    
-
-    
-
-    public String getStatus() {
-        return status;
-    }
-
-    public void setStatus(String status) {
-        this.status = status;
-    }
-
- 
-    public int getphoneNumber() {
+        
+    public String getphoneNumber() {
         return phoneNumber;
     }
 
-    public void setphoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber;
-    } 
+    public void setphoneNumber(String phoneNumber) {
+        this.phoneNumber = phoneNumber; {
+            if(phoneNumber == null || !phoneNumber.matches("^\\+?[0-9]{10,15}$")) {
+                throw new IllegalArgumentException("Invalid phone number format");
+            }
+            this.phoneNumber = phoneNumber.trim();
+        }
+        }
 
     public String getresumeURL() {
-        return resumeURL;
-
-    }
-
+            return resumeURL;
+    
+        }
+    
     public void setresumeURL(String resumeURL) {
-        this.resumeURL = resumeURL;
-    }
+            this.resumeURL = resumeURL != null ? resumeURL.trim() : null;
+        }
 
     public Date getregistrationDate() {
-        return registrationDate;
+            return registrationDate;
+        
+        }
     
+    public void setregistrationDate(Date registrationDate) {
+            this.registrationDate = registrationDate != null ? new Date(registrationDate.getTime()) : null; 
+        }
+
+
+    public CandidateStatus getStatus() {
+        return Status;
     }
 
-    public void setregistrationDate(Date registrationDate) {
-        this.registrationDate = registrationDate;
+    public void setStatus(CandidateStatus status) {
+        if( status == null) {
+            throw new IllegalArgumentException("Status cannot be null");
+        }
+        this.Status = status;
     }
+
+    public Date getCreatedAt() {
+        return createdAt != null ? new Date(createdAt.getTime()) : null;
+    }
+
+    protected void setCreatedAt(Date createdAt) {
+        this.createdAt = createdAt != null ? new Date(createdAt.getTime()) : null;
+
+    }
+
+    public Date getUpdatedAt() {
+        return updatedAt != null ? new Date(updatedAt.getTime()) : null;
+    }
+
+    public void setUpdatedAt(Date updatedAt) {
+        this.updatedAt = updatedAt != null ? new Date(updatedAt.getTime()) : null;
+    }
+
+    
+
+
+
 
     public Integer getId() {
         return id;
