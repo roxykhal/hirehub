@@ -41,7 +41,15 @@ import java.io.Serializable;;
 
 
 
-    //getters and setters
+    //getters and setters with validation
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId (Integer id) {
+        this.id = id;
+    }
 
     public String getfirstName() {
         return firstName;
@@ -134,19 +142,6 @@ import java.io.Serializable;;
 
     public void setUpdatedAt(Date updatedAt) {
         this.updatedAt = updatedAt != null ? new Date(updatedAt.getTime()) : null;
-    }
-
-    
-
-
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId (Integer id) {
-        this.id = id;
     }
 
 
