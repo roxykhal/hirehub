@@ -4,8 +4,8 @@ import com.hirehub.model.Interviews;
 import com.hirehub.model.Job;
 import com.hirehub.model.Users;
 import com.hirehub.service.JobService;
+import com.hirehub.service.OffersService;
 import com.hirehub.service.UserService;
-
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
@@ -14,11 +14,44 @@ import com.hirehub.service.InterviewsService;
 
 
 public class Main {
-    private static Scanner scanner = new Scanner(System.in);
-    private static JobService jobService = new JobService();
-    private static CandidateService candidateService = new CandidateService();
-    private static UserService userService = new UserService();
-    private static InterviewsService interviewsService = new InterviewsService();
+    private static final Scanner scanner = new Scanner(System.in);
+    private static final JobService jobService = new JobService();
+    private static final CandidateService candidateService = new CandidateService();
+    private static final UserService userService = new UserService();
+    private static final InterviewsService interviewsService = new InterviewsService();
+    private static final OffersService offersService = new OffersService();
+
+
+    public static void main(String[] args) {
+        System.out.println("Welcome to Hirehub!");
+        boolean running = true;
+
+        while(running) {
+            displayMainMenu();
+            int choice = getIntInput("Enter your choice: ");
+                switch (choice) {
+                    case 1 -> handleJobOperations();
+                    case 2 -> handleCandidateOperations();
+                    case 3 -> handleApplicationOperations();
+                    case 4 -> handleInterviewOperations();
+                    case 5 -> handleOfferOperations();
+                    case 6 -> handleUserOperations();
+                    case 7 -> {
+                        System.out.println("Thank you for using Hirehub!");
+                        running = false;
+                    }
+
+                    default -> System.out.println("Invalid option. Please try again. ");
+
+                }
+            }
+        } catch(Exception e) {
+            System.out.println("An error occurred: " + e.getMessage());
+        } finally {
+            scanner.close();
+        }
+    
+
 
 
     private static void displayMainMenu() {
@@ -153,15 +186,8 @@ public class Main {
         Interviews interview = new Interviews(interviewID, applicationID, null, feedback, feedback);
         interviewsService.createInterviews(interviews);
 
-    }
-
-
-
-
-        
-    public static void main(String[] args) {
-        System.out.println("Welcome to Hirehub!");
-
+    
+                
 
         JobService jobService = new JobService();
 
