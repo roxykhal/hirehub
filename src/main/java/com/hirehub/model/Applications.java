@@ -49,10 +49,10 @@ public Applications() {
 
 public Applications(int jobID, int candidateID, Date applicationDate, String status) {
     this(); // Calling the default constructor to initialize default values for optional fields
-    setJobID(jobID);
-    setCandidateID(candidateID);
-    setApplicationDate(applicationDate != null ? applicationDate : new Date()); // Use current date if null
-    setStatus(status != null ? applicationStatus.valueOf(status) : applicationStatus.APPLIED); // Default to APPLIED if status is null
+    setjobID(jobID);
+    setcandidateID(candidateID);
+    setapplicationDate(applicationDate != null ? applicationDate : new Date()); // Use current date if null
+    setstatus(status != null ? applicationStatus.valueOf(status) : applicationStatus.APPLIED); // Default to APPLIED if status is null
 }
 
 
@@ -174,6 +174,6 @@ public Integer getLastUpdatedby() {
 public void setLastUpdatedBy(Integer lastUpdatedBy) {
     this.lastUpdatedBy = lastUpdatedBy;
 }
-
+}
 //@override 
 
