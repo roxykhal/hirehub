@@ -29,6 +29,7 @@ public class Main {
         while(running) {
             displayMainMenu();
             int choice = getIntInput("Enter your choice: ");
+            
                 switch (choice) {
                     case 1 -> handleJobOperations();
                     case 2 -> handleCandidateOperations();
@@ -56,12 +57,40 @@ public class Main {
 
     private static void displayMainMenu() {
         System.out.println("HireHub Main Menu");
-        System.out.println("1. Manage Candidates");
-        System.out.println("2. Manage Jobs");
-        System.out.println("3. Manage Interviews");
-        System.out.println("4. Manage Applications");
-        System.out.println("5. Exit");
+        System.out.println("1. Candidate Management");
+        System.out.println("2. Job Management");
+        System.out.println("3. Interview Management");
+        System.out.println("4. Application Management");
+        System.out.println("5. User Management");
+        System.out.println("6. Offer Management");
+        System.out.println("7. Exit");
 
+    }
+
+    private static void handleJobOperations() {
+        while (true) {
+            System.out.println("\n === Job Management ===");
+            System.out.println("1. Create New Job");
+            System.out.println("2. View all Jobs");
+            System.out.println("3. View by ID");
+            System.out.println("4. Update Job");
+            System.out.println("5. Delete Job");
+            System.out.println("6. Back to Main menu");
+
+            int choice = getIntInput("Enter your choice: ");
+
+            try{
+                switch(choice) {
+                    case 1 -> createJob();
+                    case 2 -> viewAllJobs();
+                    
+                }
+            }
+
+
+
+
+        }
     }
 
     private static void displayCandidateMenu() {
