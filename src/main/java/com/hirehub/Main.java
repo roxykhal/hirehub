@@ -83,7 +83,11 @@ public class Main {
                 switch(choice) {
                     case 1 -> createJob();
                     case 2 -> viewAllJobs();
-                    
+                    case 3 -> viewById();
+                    case 4 -> updateJob();
+                    case 5 -> deleteJob();
+                    case 6 -> mainMenu();
+
                 }
             }
 
@@ -121,8 +125,6 @@ public class Main {
         System.out.println("4. Delete User");
         System.out.println("5. Find User by ID");
         System.out.println("6. Return to Main Menu");
-
-
     }
 
     private static void displayInterviewsMenu() {
@@ -132,8 +134,7 @@ public class Main {
         System.out.println("3. Update Interviews");
         System.out.println("4. Delete Interview");
         System.out.println("5. Find Interview");
-        System.out.println("6. Return to Main Men");
-
+        System.out.println("6. Return to Main Menu");
     }
 
     private static void addJob() {
