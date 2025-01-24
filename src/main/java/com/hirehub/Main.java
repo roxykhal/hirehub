@@ -90,8 +90,7 @@ public class Main {
                     case 6 -> mainMenu();
 
                 }
-
-        }
+        
     }
 
     private static void handleCandidateOperations() {
@@ -128,7 +127,7 @@ public class Main {
         System.out.println("6. Return to Main Menu");
     }
 
-    private static void displayInterviewsMenu() {
+    private static void handleInterviewOperations() {
         System.out.println("Interview Management Menu");
         System.out.println("1. Create Interview");
         System.out.println("2. View all Interviews");
@@ -136,6 +135,21 @@ public class Main {
         System.out.println("4. Delete Interview");
         System.out.println("5. Find Interview");
         System.out.println("6. Return to Main Menu");
+
+        int choice = getIntInput("Enter your choice: ");
+
+        try{
+            switch(choice) {
+                case 1 -> createInterview();
+                case 2 -> viewAllInterviews();
+                case 3 -> updateInterview();
+                case 4 -> deleteInterview();
+                case 5 -> findInterview();
+                case 6 -> mainMenu();
+                
+            
+    }
+    
     }
 
     private static void addJob() {
