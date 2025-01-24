@@ -46,12 +46,17 @@ public class Main {
 
                 }
             }
-        } catch(Exception e) {
-            System.out.println("An error occurred: " + e.getMessage());
-        } finally {
-            scanner.close();
+        } 
+        
+        private static int getIntInput(String prompt) {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print(prompt);
+            while (!scanner.hasNextInt()) {
+                System.out.println("Invalid input. Please enter a valid integer.");
+                scanner.next(); // Clear the invalid input
+            }
+            return scanner.nextInt();
         }
-    }
     
 
 
@@ -77,10 +82,12 @@ public class Main {
             System.out.println("4. Update Job");
             System.out.println("5. Delete Job");
             System.out.println("6. Back to Main menu");
+        }
+    }
 
             int choice = getIntInput("Enter your choice: ");
 
-            try{
+            try {
                 switch(choice) {
                     case 1 -> createJob();
                     case 2 -> viewAllJobs();
@@ -90,34 +97,51 @@ public class Main {
                     case 6 -> mainMenu();
 
                 }
+            } catch (Exception e) {
+                // Handle exception here
+                e.printStackTrace();  // Or some other logging method
+            }
         
-    }
 
     private static void handleCandidateOperations() {
         while (true) {
-        System.out.println("Candidate Management Menu");
-        System.out.println("1. Register Candidate");
-        System.out.println("2. View all Candidates");
-        System.out.println("3. Update Candidates");
-        System.out.println("4. Delete Candidates");
-        System.out.println("5. Find Candidate by ID");
-        System.out.println("6. Return to Main Menu");
-
-        int choice = getIntInput("Enter your choice: ");
-
-        try{
-            switch(choice) {
-                case 1 -> createCandidate();
-                case 2 -> viewAllcandidates();
-                case 3 -> viewById();
-                case 4 -> updateCandidate();
-                case 5 -> deleteCandidate();
-                case 6 -> mainMenu();
+            // Print menu options
+            System.out.println("Candidate Management Menu");
+            System.out.println("1. Register Candidate");
+            System.out.println("2. View all Candidates");
+            System.out.println("3. Update Candidates");
+            System.out.println("4. Delete Candidates");
+            System.out.println("5. Find Candidate by ID");
+            System.out.println("6. Return to Main Menu");
+    
+            // Get user choice
+            int choice = getIntInput("Enter your choice: ");
+    
+            try {
+                switch (choice) {
+                    case 1 -> createCandidate();
+                    case 2 -> viewAllCandidates();
+                    case 3 -> updateCandidate();
+                    case 4 -> deleteCandidate();
+                    case 5 -> findById();
+                    case 6 -> {
+                        mainMenu();
+                        return; // Exit the loop and return to main menu
+                    }
+                    default -> System.out.println("Invalid choice. Please try again.");
+                }
+            } catch (Exception e) {
+                // Handle exception here
+                e.printStackTrace();  // Or some other logging method
+            }
+        }
     }
+    
     
 
 
-    private static void displayUsersMenu() {
+    private static void handleUserOperations() {
+        while (true) {
         System.out.println("User Management Menu");
         System.out.println("1. Create User");
         System.out.println("2. View all Users");
@@ -125,9 +149,25 @@ public class Main {
         System.out.println("4. Delete User");
         System.out.println("5. Find User by ID");
         System.out.println("6. Return to Main Menu");
+        }
+    }
+        
+        try{
+            switch(choice) {
+                case 1 -> createCandidate();
+                case 2 -> viewAllcandidates();
+                case 3 -> updateUser();
+                case 4 -> deleteUser();
+                case 5 -> findById();
+                case 6 -> mainMenu();
+    }
+             } catch (Exception e) {
+                // Handle exception here
+                e.printStackTrace();  // Or some other logging method
     }
 
     private static void handleInterviewOperations() {
+        while (true) {
         System.out.println("Interview Management Menu");
         System.out.println("1. Create Interview");
         System.out.println("2. View all Interviews");
@@ -135,7 +175,7 @@ public class Main {
         System.out.println("4. Delete Interview");
         System.out.println("5. Find Interview");
         System.out.println("6. Return to Main Menu");
-
+        }
         int choice = getIntInput("Enter your choice: ");
 
         try{
@@ -149,7 +189,31 @@ public class Main {
                 
             
     }
-    
+
+    private static void handleApplicationOperations() {
+        while (true) {
+        System.out.println("Application Management Menu");
+        System.out.println("1. Create Application");
+        System.out.println("2. View all Applications");
+        System.out.println("3. Update Application");
+        System.out.println("4. Delete Application");
+        System.out.println("5. Find Application");
+        System.out.println("6. Return to Main Menu");
+        }
+        int choice = getIntInput("Enter your choice: ");
+
+        try{
+            switch(choice) {
+                case 1 -> createApplication();
+                case 2 -> viewAllApplication();
+                case 3 -> updateApplication();
+                case 4 -> deleteApplication();
+                case 5 -> findApplication();
+                case 6 -> mainMenu();
+                
+            
+    }
+
     }
 
     private static void addJob() {
