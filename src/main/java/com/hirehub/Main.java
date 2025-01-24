@@ -51,6 +51,7 @@ public class Main {
         } finally {
             scanner.close();
         }
+    }
     
 
 
@@ -89,15 +90,12 @@ public class Main {
                     case 6 -> mainMenu();
 
                 }
-            }
-
-
-
 
         }
     }
 
-    private static void displayCandidateMenu() {
+    private static void handleCandidateOperations() {
+        while (true) {
         System.out.println("Candidate Management Menu");
         System.out.println("1. Register Candidate");
         System.out.println("2. View all Candidates");
@@ -105,17 +103,20 @@ public class Main {
         System.out.println("4. Delete Candidates");
         System.out.println("5. Find Candidate by ID");
         System.out.println("6. Return to Main Menu");
-    }
 
-    private static void displayJobsMenu() {
-        System.out.println("Job Management Menu");
-        System.out.println("1. Create Job");
-        System.out.println("2. View all Jobs");
-        System.out.println("3. Update Job");
-        System.out.println("4. Delete Job");
-        System.out.println("5. Find Job by ID");
-        System.out.println("6. Return to Main Menu");
+        int choice = getIntInput("Enter your choice: ");
+
+        try{
+            switch(choice) {
+                case 1 -> createCandidate();
+                case 2 -> viewAllcandidates();
+                case 3 -> viewById();
+                case 4 -> updateCandidate();
+                case 5 -> deleteCandidate();
+                case 6 -> mainMenu();
     }
+    
+
 
     private static void displayUsersMenu() {
         System.out.println("User Management Menu");
