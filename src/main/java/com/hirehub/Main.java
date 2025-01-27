@@ -187,8 +187,11 @@ public class Main {
                 case 5 -> findInterview();
                 case 6 -> mainMenu();
                 
-            
-    }
+            }
+        } catch (Exception e) {
+           // Handle exception here
+           e.printStackTrace();  // Or some other logging method
+}
 
     private static void handleApplicationOperations() {
         while (true) {
@@ -211,10 +214,43 @@ public class Main {
                 case 5 -> findApplication();
                 case 6 -> mainMenu();
                 
-            
-    }
+            }
+        } catch (Exception e) {
+            // Handle exception here
+            e.printStackTrace();  // Or some other logging method
+        }
 
-    }
+
+    private static void handleApplicationOperations() {
+        while (true) {
+            
+        System.out.println("Application Management Menu");
+        System.out.println("1. Create Application");
+        System.out.println("2. View all Applications");
+        System.out.println("3. Update Application");
+        System.out.println("4. Delete Application");
+        System.out.println("5. Find Application");
+        System.out.println("6. Return to Main Menu");
+            }
+        int choice = getIntInput("Enter your choice: ");
+    
+        try{
+             switch(choice) {
+                    case 1 -> createApplication();
+                    case 2 -> viewAllApplication();
+                    case 3 -> updateApplication();
+                    case 4 -> deleteApplication();
+                    case 5 -> findApplication();
+                    case 6 -> mainMenu();
+                    
+                }
+            } catch (Exception e) {
+                // Handle exception here
+                e.printStackTrace();  // Or some other logging method
+            }
+
+
+
 
     private static void addJob() {
         System.out.println("Create new job");

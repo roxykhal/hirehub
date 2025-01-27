@@ -31,7 +31,7 @@ import java.io.Serializable;;
     }
 
     //Constructor with required field
-    public Candidates(String firstName, String lastName, String emailAdress, String phoneNumber) {
+    public Candidates(String firstName, String lastName, String emailAdress, int phoneNumber) {
         this();
         setfirstName(firstName);
         setlastName(lastName);
@@ -88,12 +88,12 @@ import java.io.Serializable;;
         return phoneNumber;
     }
 
-    public void setphoneNumber(String phoneNumber) {
+    public void setphoneNumber(int phoneNumber) {
         this.phoneNumber = phoneNumber; {
-            if(phoneNumber == null || !phoneNumber.matches("^\\+?[0-9]{10,15}$")) {
+            if(i == null || !phoneNumber.matches("^\+?[0-9]{10,15}$")) {
                 throw new IllegalArgumentException("Invalid phone number format");
             }
-            this.phoneNumber = phoneNumber.trim();
+            this.phoneNumber = i.trim();
         }
         }
 
