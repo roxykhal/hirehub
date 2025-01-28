@@ -256,14 +256,41 @@ public class Main {
 
      //Candidate logic
 
+     private static void createCandidate() {
+    
+     }
+ 
+     private static void viewAllCandidates() {
+ 
+     }
+ 
+     private static void updateCandidate() {
+ 
+     }
+ 
+     private static void deleteCandidate() {
+ 
+     }
+ 
+     private static void findById() {
+     }
+
+
+     //User logic
+
+     
 
 
 
-     case 1 -> createCandidate();
-     case 2 -> viewAllCandidates();
-     case 3 -> updateCandidate();
-     case 4 -> deleteCandidate();
-     case 5 -> findById();
+
+
+
+     case 1 -> createUser();
+     case 2 -> viewAllUsers();
+     case 3 -> updateUser();
+     case 4 -> deleteUser();
+     case 5 -> findUserById();
+
 
     private static void addJob() {
         System.out.println("Create new job");
