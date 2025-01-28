@@ -83,7 +83,9 @@ public class Main {
                     case 3 -> viewById();
                     case 4 -> updateJob();
                     case 5 -> deleteJob();
-                    case 6 -> return; // Exit job management
+                    case 6 -> {
+                        return;
+                     } // Exit job management
                     default -> System.out.println("Invalid choice. Please try again.");
                 }
             } catch (Exception e) {
@@ -111,7 +113,9 @@ public class Main {
                     case 3 -> updateCandidate();
                     case 4 -> deleteCandidate();
                     case 5 -> findById();
-                    case 6 -> return; // Exit candidate management
+                    case 6 -> { 
+                        return;
+                     } // Exit candidate management
                     default -> System.out.println("Invalid choice. Please try again.");
                 }
             } catch (Exception e) {
@@ -139,7 +143,9 @@ public class Main {
                     case 3 -> updateUser();
                     case 4 -> deleteUser();
                     case 5 -> findUserById();
-                    case 6 -> return; // Exit user management
+                    case 6 -> {
+                        return;
+                     } // Exit user management
                     default -> System.out.println("Invalid choice. Please try again.");
                 }
             } catch (Exception e) {
@@ -167,7 +173,9 @@ public class Main {
                     case 3 -> updateInterview();
                     case 4 -> deleteInterview();
                     case 5 -> findInterview();
-                    case 6 -> return; // Exit interview management
+                    case 6 -> { 
+                        return;
+                     } // Exit interview management
                     default -> System.out.println("Invalid choice. Please try again.");
                 }
             } catch (Exception e) {
@@ -195,7 +203,9 @@ public class Main {
                     case 3 -> updateApplication();
                     case 4 -> deleteApplication();
                     case 5 -> findApplication();
-                    case 6 -> return; // Exit application management
+                    case 6 -> {
+                        return;
+                     } // Exit application management
                     default -> System.out.println("Invalid choice. Please try again.");
                 }
             } catch (Exception e) {
@@ -223,7 +233,9 @@ public class Main {
                 case 3 -> updateOffer();
                 case 4 -> deleteOffer();
                 case 5 -> findOffer();
-                case 6 -> return; // Exit application management
+                case 6 -> {
+                    return;
+                } // Exit application management
                 default -> System.out.println("Invalid choice. Please try again.");
             }
         } catch (Exception e) {
