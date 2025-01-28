@@ -339,6 +339,28 @@ public class Main {
      private static void findApplication() {
      }
 
+     //Offer logic
+
+     private static void createOffer() {
+    
+     }
+ 
+     private static void viewAllOffers() {
+ 
+     }
+ 
+     private static void updateOffer() {
+ 
+     }
+ 
+     private static void deleteOffer() {
+ 
+     }
+ 
+     private static void findOffer() {
+     }
+
+
 
     private static void addJob() {
         System.out.println("Create new job");
