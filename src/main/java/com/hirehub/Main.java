@@ -318,8 +318,26 @@ public class Main {
      private static void findInterview() {
      }
 
+     //Application logic 
 
-
+     private static void createApplication() {
+    
+     }
+ 
+     private static void viewAllApplications() {
+ 
+     }
+ 
+     private static void updateApplication() {
+ 
+     }
+ 
+     private static void deleteApplication() {
+ 
+     }
+ 
+     private static void findApplication() {
+     }
 
 
     private static void addJob() {
