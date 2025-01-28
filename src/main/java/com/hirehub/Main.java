@@ -206,9 +206,31 @@ public class Main {
 
     // Offer operations
     private static void handleOfferOperations() {
-        // Similar structure as above
-        // Add your offer management logic here
+        while (true) {   
+        System.out.println("\n === Offer Management ===");
+        System.out.println("1. Create Offer");
+        System.out.println("2. View all Offers");
+        System.out.println("3. Update Offer");
+        System.out.println("4. Delete Offer");
+        System.out.println("5. Find Offer");
+        System.out.println("6. Return to Main Menu");
+
+        int choice = getIntInput("Enter your choice: ");
+        try {
+            switch (choice) {
+                case 1 -> createOffer();
+                case 2 -> viewAllOffers();
+                case 3 -> updateOffer();
+                case 4 -> deleteOffer();
+                case 5 -> findOffer();
+                case 6 -> return; // Exit application management
+                default -> System.out.println("Invalid choice. Please try again.");
+            }
+        } catch (Exception e) {
+            e.printStackTrace(); // Or some other logging method
+        }
     }
+}
 
 
 
