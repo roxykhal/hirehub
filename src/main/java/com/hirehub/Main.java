@@ -278,18 +278,28 @@ public class Main {
 
      //User logic
 
-     
+     private static void createUser() {
+    
+     }
+ 
+     private static void viewAllUsers() {
+ 
+     }
+ 
+     private static void updateUser() {
+ 
+     }
+ 
+     private static void deleteUser() {
+ 
+     }
+ 
+     private static void findUserById() {
+     }
 
 
 
 
-
-
-     case 1 -> createUser();
-     case 2 -> viewAllUsers();
-     case 3 -> updateUser();
-     case 4 -> deleteUser();
-     case 5 -> findUserById();
 
 
     private static void addJob() {
