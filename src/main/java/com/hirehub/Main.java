@@ -297,6 +297,26 @@ public class Main {
      private static void findUserById() {
      }
 
+     //Interview logic 
+
+     private static void createInterview() {
+    
+     }
+ 
+     private static void viewAllInterviews() {
+ 
+     }
+ 
+     private static void updateInterview() {
+ 
+     }
+ 
+     private static void deleteInterview() {
+ 
+     }
+ 
+     private static void findInterview() {
+     }
 
 
 
