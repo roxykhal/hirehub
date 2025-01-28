@@ -232,8 +232,38 @@ public class Main {
     }
 }
 
+    //Job logic 
+
+    private static void createJob() {
+    
+    }
+
+    private static void viewAllJobs() {
+
+    }
+
+    private static void viewById() {
+
+    }
+
+    private static void updateJob() {
+
+    }
+
+    private static void deleteJob() {
+
+    }
+
+     //Candidate logic
 
 
+
+
+     case 1 -> createCandidate();
+     case 2 -> viewAllCandidates();
+     case 3 -> updateCandidate();
+     case 4 -> deleteCandidate();
+     case 5 -> findById();
 
     private static void addJob() {
         System.out.println("Create new job");
