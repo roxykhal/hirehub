@@ -1,6 +1,6 @@
 package com.hirehub.model;
 import java.util.Date;
-import java.util.Objects;
+//import java.util.Objects;
 import java.io.Serializable;;
 
 
@@ -24,15 +24,14 @@ import java.io.Serializable;;
         }
 
     //default constructor 
-    public Candidates(int id2, String resumeUrl2, String firstName2, String lastName2, String email, int phoneNumber2, String resumeUrl3, Object object) {
+    public Candidates(int id2, String resumeUrl2, String firstName2, String lastName2, String email, String phoneNumber, String resumeUrl3, Object object) {
         this.registrationDate = new Date();
         this.createdAt = new Date();
         this.Status = CandidateStatus.ACTIVE;
     }
 
     //Constructor with required field
-    public Candidates(String firstName, String lastName, String emailAdress, int phoneNumber) {
-        this();
+    public Candidates(String firstName, String lastName, String emailAdress, String phoneNumber) {
         setfirstName(firstName);
         setlastName(lastName);
         setemailAddress(emailAddress);
@@ -88,12 +87,12 @@ import java.io.Serializable;;
         return phoneNumber;
     }
 
-    public void setphoneNumber(int phoneNumber) {
-        this.phoneNumber = phoneNumber; {
-            if(i == null || !phoneNumber.matches("^\+?[0-9]{10,15}$")) {
+    public void setphoneNumber(String phoneNumber2) {
+            this.phoneNumber = phoneNumber2; {
+                if(phoneNumber2 == null || !phoneNumber2.matches("^\\+?[0-9]{10,15}$")) {
                 throw new IllegalArgumentException("Invalid phone number format");
             }
-            this.phoneNumber = i.trim();
+            this.phoneNumber = phoneNumber2.trim();
         }
         }
 
