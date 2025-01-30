@@ -2,7 +2,7 @@ package com.hirehub.model;
 import java.util.Date;
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Objects;
+//import java.util.Objects;
 import com.hirehub.model.Enums.applicationStatus;
 
 

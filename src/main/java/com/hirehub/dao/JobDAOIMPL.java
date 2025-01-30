@@ -28,6 +28,7 @@ public class JobDAOIMPL implements JobDAO {
             pstmt.setString(3, job.getRequirements());
             pstmt.setDate(4, new java.sql.Date(job.getPostingDate().getTime()));
             pstmt.setDate(5, new java.sql.Date(job.getClosingDate().getTime()));
+            //.name returns the name of the enum constant to a string
             pstmt.setString(6, job.getStatus().name());
             pstmt.setInt(7, job.getId());
 
@@ -49,7 +50,7 @@ public class JobDAOIMPL implements JobDAO {
         pstmt.setString(1, job.getTitle());
         pstmt.setString(2, job.getDescription());
         pstmt.setString(3, job.getRequirements());
-        pstmt.setString(4, job.getStatus());
+        pstmt.setString(4, job.getStatus().name());
         pstmt.setInt(5, job.getId());
         //pstmt.setDate(1, job.getPostingDate());
         //pstmt.setDate(1, job.getClosingDate());

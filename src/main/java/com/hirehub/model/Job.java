@@ -2,7 +2,7 @@ package com.hirehub.model;
 import com.hirehub.model.Enums.jobStatus;
 import java.io.Serializable;
 import java.util.Date;
-import java.util.Objects;
+//import java.util.Objects;
 
 
 public class Job implements Serializable {
@@ -129,16 +129,22 @@ public class Job implements Serializable {
         this.updatedAt = updatedAt != null ? new Date(updatedAt.getTime()) : null;
     }
 
+    public Integer getUpdatedBy() {
+        return updatedBy;
+    }
+
+    public void setUpdatedBy(Integer updatedBy) {
+        this.updatedBy = updatedBy;
+    }
+
     public Integer getCreatedBy() {
         return createdBy;
     }
 
-    public void setCreatedBy(Integer updatedBy) {
-        this.updatedBy = updatedBy;
+    public void createdBy(Integer createdBy) {
+        this.createdBy = createdBy;
     }
 
-    
 
-    
 
 }

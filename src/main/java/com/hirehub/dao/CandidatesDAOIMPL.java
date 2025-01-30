@@ -25,9 +25,9 @@ public class CandidatesDAOimpl implements CandidatesDAO {
             pstmt.setString(1, candidates.getfirstName());
             pstmt.setString(2, candidates.getlastName());
             pstmt.setString(3, candidates.getemailAddress());
-            pstmt.setInt(4, candidates.getphoneNumber());
+            pstmt.setString(4, candidates.getphoneNumber());
             pstmt.setString(5, candidates.getresumeURL());
-            pstmt.setString(6, candidates.getStatus());
+            pstmt.setString(6, candidates.getStatus().name());
             pstmt.setDate(7, new java.sql.Date(candidates.getregistrationDate().getTime()));
 
             
@@ -98,8 +98,8 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                     pstmt.setString(3, candidates.getemailAddress());
                     pstmt.setString(4, candidates.getresumeURL());
                     pstmt.setInt(5, candidates.getId());
-                    pstmt.setString(6, candidates.getStatus());
-                    pstmt.setInt(7, candidates.getphoneNumber());
+                    pstmt.setString(6, candidates.getStatus().name());
+                    pstmt.setString(7, candidates.getphoneNumber());
                     pstmt.executeUpdate();
                 
                     }catch(SQLException e) {
@@ -169,7 +169,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                     candidates.setfirstName(rs.getString("first_name"));
                     candidates.setlastName(rs.getString("last_name"));
                     candidates.setemailAddress(rs.getString("email_address"));
-                    candidates.setphoneNumber(rs.getInt("phone_number")); 
+                    candidates.setphoneNumber(rs.getString("phone_number")); 
                     candidates.setresumeURL(rs.getString("resume_url"));
                     candidates.setStatus(rs.getString("status"));
                     candidates.setregistrationDate(rs.getDate("registration_date")); 
