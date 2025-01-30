@@ -20,12 +20,14 @@ public class Main {
     private static final InterviewsService interviewsService = new InterviewsService();
     private static final OffersService offersService = new OffersService();
 
+    //displays main menu where user can choose section to manage
     public static void main(String[] args) {
         System.out.println("Welcome to Hirehub!");
         boolean running = true;
 
         while (running) {
             displayMainMenu();
+            
             int choice = getIntInput("Enter your choice: ");
             
             switch (choice) {
@@ -43,7 +45,7 @@ public class Main {
             }
         }
     }
-
+    //integer input, to ensure valid integer or prompts if invalid
     private static int getIntInput(String prompt) {
         System.out.print(prompt);
         while (!scanner.hasNextInt()) {
@@ -53,6 +55,7 @@ public class Main {
         return scanner.nextInt();
     }
 
+    //main menu options to the console
     private static void displayMainMenu() {
         System.out.println("HireHub Main Menu");
         System.out.println("1. Candidate Management");
@@ -78,6 +81,7 @@ public class Main {
             int choice = getIntInput("Enter your choice: ");
             try {
                 switch (choice) {
+                    //CRUD operations, methods handle actions
                     case 1 -> createJob();
                     case 2 -> viewAllJobs();
                     case 3 -> viewById();
@@ -451,11 +455,11 @@ public class Main {
         String feedback = scanner.nextLine();
 
         Interviews interview = new Interviews(interviewID, applicationID, null, feedback, feedback);
-        interviewsService.createInterviews(interviews);
+        interviewsService.createInterviews();
 
     
                 
-
+        //job CRUD
         JobService jobService = new JobService();
 
         //Create a new job

@@ -30,7 +30,7 @@ public class Job implements Serializable {
     }
 
     public Job(String title, String description, String requirements, Date postingDate, Date closingDate,
-            jobStatus status) {
+            String status) {
         this();        
         setTitle(title);
         setDescription(description);
