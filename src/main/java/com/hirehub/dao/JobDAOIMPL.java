@@ -28,7 +28,7 @@ public class JobDAOIMPL implements JobDAO {
             pstmt.setString(3, job.getRequirements());
             pstmt.setDate(4, new java.sql.Date(job.getPostingDate().getTime()));
             pstmt.setDate(5, new java.sql.Date(job.getClosingDate().getTime()));
-            pstmt.setString(6, job.getStatus());
+            pstmt.setString(6, job.getStatus().name());
             pstmt.setInt(7, job.getId());
 
             pstmt.executeUpdate();
