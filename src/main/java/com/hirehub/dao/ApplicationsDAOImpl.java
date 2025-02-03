@@ -37,5 +37,17 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
             e.printStackTrace();
         }
     }
-    
-}int jobID, int candidateID, Date applicationDate, String stat
+
+    @Override
+    public void delete(int applicationID) {
+        String sql = "DELETE FROM applications when application_id = ?";
+
+        try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, applicationID);
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+}

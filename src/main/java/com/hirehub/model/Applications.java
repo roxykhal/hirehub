@@ -22,34 +22,22 @@ private String applicationNotes;
 private Integer lastUpdatedBy;
 private applicationStatus status;
 private String coverLetter;
+private int applicationID;
 
 
 //Default Constructors
 
 public Applications() {
-    this.applicationDate = new Date();
-    this.createdAt = new Date();
-    this.status = applicationStatus.APPLIED;
-    this.jobID = jobID;
-    this.candidateID = candidateID;
-    this.applicationDate = applicationDate != null ? applicationDate : new Date(); // If applicationDate is null, use the current date
-    this.currentSalary = currentSalary;
-    this.expectedSalary = expectedSalary;
-    this.createdAt = createdAt != null ? createdAt : new Date(); // If createdAt is null, use the current date
-    this.updatedAt = updatedAt;
-    this.applicationNotes = applicationNotes;
-    this.lastUpdatedBy = lastUpdatedBy;
-    this.status = status != null ? status : applicationStatus.APPLIED; // Default to "APPLIED" if status is null
-    this.coverLetter = coverLetter;
     
 }
 
 //Constructor with required fields
 
-public Applications(int jobID, int candidateID, Date applicationDate, String status) {
+public Applications(int jobID, int candidateID, Date applicationDate, String status, int applicationID) {
     this(); // Calling the default constructor to initialize default values for optional fields
     setjobID(jobID);
     setcandidateID(candidateID);
+    setapplicationID(applicationID);
     setapplicationDate(applicationDate != null ? applicationDate : new Date()); // Use current date if null
     setstatus(status != null ? applicationStatus.valueOf(status) : applicationStatus.APPLIED); // Default to APPLIED if status is null
 }
@@ -79,6 +67,15 @@ public void setcandidateID(Integer candidateID) {
     throw new IllegalArgumentException("Invalid candidate ID");
 }
     this.candidateID = candidateID;
+}
+
+public int getapplicationID() {
+    return applicationID;
+}
+
+public void setapplicationID(int applicationID) {
+    this.applicationID = applicationID;
+
 }
 
 
