@@ -5,8 +5,11 @@ import java.util.List;
 
 //complete abstract class
 public interface JobDAO {
+
     void add(Job job);
+
     void update(Job job);
+    
     void delete(int id);
 
     Job getId(int id);

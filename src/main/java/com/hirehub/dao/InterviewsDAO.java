@@ -7,8 +7,11 @@ import java.util.List;
 
 //complete abstract class
 public interface InterviewsDAO {
+
     void add(Interviews interviews);
+
     void update(Interviews interviews);
+    
     void delete(int interviewID);
 
     Interviews getByID(int id);
