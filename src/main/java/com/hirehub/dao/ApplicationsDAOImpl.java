@@ -50,4 +50,45 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
         }
 
     }
-}
+
+    @Override
+    public void update(Applications applications) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'update'");
+    }
+
+    @Override
+    public Applications getByID(int applicationID) {
+        String sql = "SELECT * FROM applications WHERE application_id = ?";
+
+        try(PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, applicationID);
+            ResultSet rs = pstmt.executeQuery();
+
+            if(rs.next()) {
+                return extractApplicationFromResultSet(rs); 
+            }
+
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+            return null;
+        
+    }
+
+    @Override
+    public List<Applications> getAll() {
+        
+    }
+
+    private Applications extractApplicationFromResultSet(ResultSet rs) throws SQLException {
+        Applications application = new Applications();
+    
+        application.setjobID(rs.getInt("job_id"));
+        application.setcandidateID(rs.getInt("candidate_id"));
+        application.setapplicationDate(rs.getTimestamp("application_date"));
+        application.setStatus(rs.getString("status")); 
+    
+        return application;
+    }
+    
