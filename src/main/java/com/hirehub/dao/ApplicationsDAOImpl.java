@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.sql.*;
 import java.util.List;
 import com.hirehub.util.DatabaseConnection;
+import com.mysql.cj.protocol.Resultset;
 
 
 public class ApplicationsDAOImpl implements ApplicationsDAO {
@@ -53,10 +54,19 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
 
     @Override
     public void update(Applications applications) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
-    }
+        String sql = "UPDATE applications SET job_id = ?, application_date = ?, status = ?, candidate_id = ? WHERE application_id = ?";
 
+        try(PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, applications.getjobID());
+            pstmt.setInt(2, applications.getcandidateID());
+            pstmt.setTimestamp(3, new Timestamp(applications.getapplicationDate().getTime())); //convert Date to Timestamp for sql
+            pstmt.setString(4, applications.getStatus().name()); //convert enum to string
+
+            pstmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+    }
+    }
     @Override
     public Applications getByID(int applicationID) {
         String sql = "SELECT * FROM applications WHERE application_id = ?";
@@ -78,7 +88,21 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
 
     @Override
     public List<Applications> getAll() {
-        
+        List<Applications> applicationsList = new ArrayList<>();
+        String sql = "SELECT * FROM applications";
+
+        try (Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery(sql)) {
+                
+                while (rs.next()) {
+                    applicationsList.add(extractApplicationFromResultSet(rs));
+                }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return applicationsList;
     }
 
     private Applications extractApplicationFromResultSet(ResultSet rs) throws SQLException {
@@ -91,4 +115,5 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
     
         return application;
     }
+}
     
