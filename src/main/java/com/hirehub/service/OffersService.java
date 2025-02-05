@@ -21,7 +21,7 @@ public void updateOffers() {
 }
 
 public void deleteOffers(int id) {
-    offersDAO.delete(null);
+    offersDAO.delete(id);
 }
 
 public void getOfferById(int id) {

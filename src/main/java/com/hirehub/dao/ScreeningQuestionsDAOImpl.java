@@ -33,7 +33,7 @@ public class ScreeningQuestionsDAOImpl implements ScreeningQuestionsDAO{
 
     @Override
     public void update(ScreeningQuestions screeningQuestions) {
-        String sql = "UPDATE jobs SET jod_id = ?, screening_questions = ?";
+        String sql = "UPDATE screening_questions SET jod_id = ?, screening_questions = ?";
         try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setInt(1, screeningQuestions.getjobID());
             pstmt.setString(2, screeningQuestions.gettext());
@@ -50,7 +50,7 @@ public class ScreeningQuestionsDAOImpl implements ScreeningQuestionsDAO{
 
     @Override
     public void delete(ScreeningQuestions screeningQuestions) {
-        String sql = "DELETE FROM candidates WHERE job_id = ?";
+        String sql = "DELETE FROM screening_questions WHERE job_id = ?";
         try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setInt(1, screeningQuestions.getjobID());
             pstmt.setString(2, screeningQuestions.gettext());
@@ -64,6 +64,22 @@ public class ScreeningQuestionsDAOImpl implements ScreeningQuestionsDAO{
     }
 
     @Override
+    public getByID(int id) {
+        String sql = "SELECT * FROM screening_questions WHERE job_id = ?";
+        try(PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return extractScreeningQuestionsFromResultSet(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();;
+        }
+        return null;
+        }
+    }
+
+    
 
     
      
