@@ -46,7 +46,30 @@ public class ScreeningQuestionsDAOImpl implements ScreeningQuestionsDAO{
     }
 
      }
-        }
+        
+
+    @Override
+    public void delete(ScreeningQuestions screeningQuestions) {
+        String sql = "DELETE FROM candidates WHERE job_id = ?";
+        try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setInt(1, screeningQuestions.getjobID());
+            pstmt.setString(2, screeningQuestions.gettext());
+
+            pstmt.executeUpdate();
+
+    }
+    catch(SQLException e) {
+        e.printStackTrace();
+    }
+    }
+
+    @Override
+
+    
+     
+
+        
+    
 
     
     
