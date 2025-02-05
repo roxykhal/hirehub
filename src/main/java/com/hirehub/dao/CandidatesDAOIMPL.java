@@ -1,4 +1,4 @@
-//provides actual implementations of methods declared in candidatesDAO file.
+//The DAO Impl class implements the methods from the DAO interface and provides the concrete logic for data access.
 package com.hirehub.dao;
 import com.hirehub.model.Candidates;
 import java.util.ArrayList;

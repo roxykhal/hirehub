@@ -1,5 +1,6 @@
 //provides actual implementations of methods declared in screeningQuestionsDAO file.
 package com.hirehub.dao;
+import com.hirehub.model.ScreeningQuestions;
 import com.hirehub.util.DatabaseConnection;
 import java.sql.*;
 
@@ -14,7 +15,10 @@ public class ScreeningQuestionsDAOImpl implements ScreeningQuestionsDAO{
 
     @Override
     public void add(ScreeningQuestions screeningQuestions) {
-        String sql = "INSERT INTO screening questions (job_id, )"
+        String sql = "INSERT INTO screening questions (job_id, screening_questions )";
+        try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setInt(1, screeningQuestions.getjobID());
+            pstmt.setString(2, screeningQuestions.gettext());
     }
     
 }

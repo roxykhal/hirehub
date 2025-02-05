@@ -31,7 +31,7 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
                 if(generatedKeys.next()) {
                     applications.setjobID(generatedKeys.getInt(1));
                 } else {
-                    throw new SQLException("Creating application failed, no ID obtained")
+                    throw new SQLException("Creating application failed, no ID obtained");
                 }
             }
         } catch (SQLException e) {
