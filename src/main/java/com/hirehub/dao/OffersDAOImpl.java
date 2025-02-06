@@ -40,8 +40,22 @@ public class OffersDAOImpl implements OffersDAO {
 
     @Override
     public void update(Offers offers) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'update'");
+        String sql = "UPDATE offers SET offer_id = ?, application_id = ?, salary = ?, start_date = ?, status = ?";
+        try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+            pstmt.setInt(1, offers.getofferID());
+            pstmt.setString(2, offers.getstatus());
+            pstmt.setInt(3, offers.getapplicationID());
+            pstmt.setDate(4, new java.sql.Date(offers.getstartDate().getTime()));
+            pstmt.setBoolean(3, offers.getsalary());
+
+    pstmt.executeUpdate();
+
+    }
+    catch(SQLException e) {
+        e.printStackTrace();
+    }
+
+
     }
 
     @Override
