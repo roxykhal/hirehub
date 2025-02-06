@@ -1,6 +1,7 @@
 
 package com.hirehub.dao;
 import com.hirehub.model.Offers;
+import com.hirehub.model.ScreeningQuestions;
 import com.hirehub.util.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
@@ -57,7 +58,6 @@ public class OffersDAOImpl implements OffersDAO {
 
 
     }
-
     @Override
     public void delete(Offers offers) {
         String sql = "DELETE FROM offers WHERE offer_id = ?";
@@ -81,7 +81,7 @@ public class OffersDAOImpl implements OffersDAO {
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                return extractOffersFromResultSet(rs);
+                return extractOffersQuestionsFromResultSet(rs);
             }
         } catch (SQLException e) {
             e.printStackTrace();;
@@ -89,16 +89,31 @@ public class OffersDAOImpl implements OffersDAO {
         return null;
         }
 
-    
-    }
-
     @Override
     public List<Offers> getAll() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getAll'");
+        List<Offers> offersList = new ArrayList<>();
+    String sql = "SELECT * FROM offers";
+    try (Statement stmt = connection.createStatement();
+    ResultSet rs = stmt.executeQuery(sql)) {
+        
+    while (rs.next()) {
+    offersList.add(extractOffersQuestionsFromResultSet(rs));  // Use screeningsList here
+ }
+        
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        
+        return offersList; 
+        
+        }    
+        
+    private Offers extractOffersQuestionsFromResultSet(ResultSet rs) throws SQLException {
+    Offers offers = new Offers();
+
+    offers.setofferID(rs.getInt("offer_id"));
+
+    return offers;
     }
-
-
-    
-    
 }
