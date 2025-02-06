@@ -24,7 +24,7 @@ public class OffersDAOImpl implements OffersDAO {
             pstmt.setString(2, offers.getstatus());
             pstmt.setInt(3, offers.getapplicationID());
             pstmt.setDate(4, new java.sql.Date(offers.getstartDate().getTime()));
-            pstmt.setBoolean(3, offers.getsalary());
+            pstmt.setBoolean(5, offers.getsalary());
 
     pstmt.executeUpdate();
 
@@ -46,7 +46,7 @@ public class OffersDAOImpl implements OffersDAO {
             pstmt.setString(2, offers.getstatus());
             pstmt.setInt(3, offers.getapplicationID());
             pstmt.setDate(4, new java.sql.Date(offers.getstartDate().getTime()));
-            pstmt.setBoolean(3, offers.getsalary());
+            pstmt.setBoolean(5, offers.getsalary());
 
     pstmt.executeUpdate();
 
@@ -60,9 +60,19 @@ public class OffersDAOImpl implements OffersDAO {
 
     @Override
     public void delete(Offers offers) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'delete'");
+        String sql = "DELETE FROM offers WHERE offer_id = ?";
+        try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        pstmt.setInt(1, offers.getofferID());
+
+    pstmt.executeUpdate();
+
     }
+    catch(SQLException e) {
+        e.printStackTrace();
+    }
+
+
+       }
 
     @Override
     public Offers getByID(int id) {
