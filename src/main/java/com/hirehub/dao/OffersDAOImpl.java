@@ -1,7 +1,6 @@
 
 package com.hirehub.dao;
 import com.hirehub.model.Offers;
-import com.hirehub.model.ScreeningQuestions;
 import com.hirehub.util.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
