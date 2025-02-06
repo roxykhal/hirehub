@@ -76,8 +76,20 @@ public class OffersDAOImpl implements OffersDAO {
 
     @Override
     public Offers getByID(int id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'getByID'");
+        String sql = "SELECT FROM offers WHERE offer_id = ?";
+        try(PreparedStatement pstmt = connection.prepareStatement(sql)) {
+            pstmt.setInt(1, id);
+            ResultSet rs = pstmt.executeQuery();
+            if (rs.next()) {
+                return extractOffersFromResultSet(rs);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();;
+        }
+        return null;
+        }
+
+    
     }
 
     @Override
