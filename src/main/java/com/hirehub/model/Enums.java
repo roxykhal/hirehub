@@ -3,7 +3,7 @@ package com.hirehub.model;
 public class Enums {
 
     public enum jobStatus {
-        DRAFT, OPEN, CLOSED, ON_HOLD
+        DRAFT, OPEN, CLOSED, ON_HOLD, UNKNOWN
     }
 
     public enum applicationStatus {

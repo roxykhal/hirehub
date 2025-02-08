@@ -1,6 +1,7 @@
 //provides actual implementations of methods declared in jobDAO file.
 
 package com.hirehub.dao;
+import com.hirehub.model.Enums;
 import com.hirehub.model.Job;
 import com.hirehub.util.DatabaseConnection;
 import java.sql.*;
@@ -118,7 +119,15 @@ public class JobDAOIMPL implements JobDAO {
 
         job.setId(rs.getInt("job_id"));
         job.setTitle(rs.getString("title"));
-        job.setStatus(rs.getString("status"));
+
+        String statusString = rs.getString("Status"); 
+        try {
+            job.setStatus(Enums.jobStatus.valueOf(statusString)); //convert string to enum
+        } catch (IllegalArgumentException e) {
+            System.out.println("invalid status value: " + statusString);
+            job.setStatus(Enums.jobStatus.UNKNOWN);
+            }
+
         job.setDescription((rs.getString("description")));
         job.setRequirements(rs.getString("requirements"));
         job.setPostingDate(rs.getDate("posting_date"));

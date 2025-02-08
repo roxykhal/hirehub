@@ -1,4 +1,4 @@
-//provides actual implementations of methods declared in applicationsDAO file.
+//implements DAO interface containing actual logic to interact with the DB
 package com.hirehub.dao;
 import com.hirehub.model.Applications;
 import java.util.ArrayList;

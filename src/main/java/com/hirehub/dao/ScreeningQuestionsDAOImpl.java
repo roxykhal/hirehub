@@ -66,7 +66,7 @@ public class ScreeningQuestionsDAOImpl implements ScreeningQuestionsDAO{
     }
 
     @Override
-    public getByID(int id) {
+    public ScreeningQuestions getByID(int id) {
         String sql = "SELECT * FROM screening_questions WHERE job_id = ?";
         try(PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(1, id);

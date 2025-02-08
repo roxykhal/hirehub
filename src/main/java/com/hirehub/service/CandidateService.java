@@ -1,3 +1,4 @@
+//service layer acts as an intermediary between user input and requests (controller) and DAO layer(data persistance)
 package com.hirehub.service;
 import com.hirehub.dao.CandidatesDAO;
 import com.hirehub.dao.CandidatesDAOimpl;
