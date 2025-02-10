@@ -29,7 +29,7 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
 
             try (ResultSet generatedKeys = pstmt.getGeneratedKeys()) {
                 if(generatedKeys.next()) {
-                    applications.setjobID(generatedKeys.getInt(1));
+                    applications.setapplicationID(generatedKeys.getInt(1));
                 } else {
                     throw new SQLException("Creating application failed, no ID obtained");
                 }
@@ -41,7 +41,7 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
 
     @Override
     public void delete(int applicationID) {
-        String sql = "DELETE FROM applications when application_id = ?";
+        String sql = "DELETE FROM applications WHERE application_id = ?";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(1, applicationID);
@@ -54,7 +54,7 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
 
     @Override
     public void update(Applications applications) {
-        String sql = "UPDATE applications SET job_id = ?, application_date = ?, status = ?, candidate_id = ? WHERE application_id = ?";
+        String sql = "UPDATE applications SET job_id = ?, candidate_id = ?, application_date = ?, status = ? WHERE application_id = ?";
 
         try(PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(1, applications.getjobID());

@@ -91,22 +91,24 @@ public applicationStatus getStatus() {
     return status;
 }
 
-public void setstatus(applicationStatus status) {
-    if(status == null) {
-        throw new IllegalArgumentException("Application status cannot be null");
+public void setstatus(String status) {
+    try{
+        this.status = applicationStatus.valueOf(status.toUpperCase(null));
     }
-    this.status = status;
+    catch(IllegalArgumentException e){
+        throw new IllegalArgumentException("Invalid application status: " + status);
+    }
 }
 
 public BigDecimal getCurrentSalary() {
     return currentSalary;
 }
 
-public void setCurrencySalary(BigDecimal currencySalary) {
-    if (currencySalary != null && currencySalary.compareTo(BigDecimal.ZERO) < 0) {
+public void setCurrentSalary(BigDecimal currentSalary) {
+    if (currentSalary != null && currentSalary.compareTo(BigDecimal.ZERO) < 0) {
         throw new IllegalArgumentException("Current salary cannot be negative");
     }
-    this.currentSalary = currencySalary;
+    this.currentSalary = currentSalary;
 }
 
 public BigDecimal getExpectedSalary() {

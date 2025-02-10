@@ -1,9 +1,10 @@
 //The DAO Impl class implements the methods from the DAO interface and provides the concrete logic for data access.
 package com.hirehub.dao;
 import com.hirehub.model.Candidates;
+import com.hirehub.model.Enums;
+
 import java.util.ArrayList;
 import java.sql.*;
-import java.sql.ResultSet;
 import java.util.List;
 import com.hirehub.util.DatabaseConnection;
 //store and return list of job objects
@@ -90,7 +91,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
 
             @Override
             public void update(Candidates candidates){
-                String sql = "UPDATE candidates SET first_name = ?, last_name = ?, email_address = ?, phone_number = ?, resume_url = ?, status = ?  + WHERE candidate_id = ? ";
+                String sql = "UPDATE candidates SET first_name = ?, last_name = ?, email_address = ?, phone_number = ?, resume_url = ?, status = ?  WHERE candidate_id = ? ";
 
                 try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
                     pstmt.setString(1, candidates.getfirstName());
@@ -171,7 +172,16 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                     candidates.setemailAddress(rs.getString("email_address"));
                     candidates.setphoneNumber(rs.getString("phone_number")); 
                     candidates.setresumeURL(rs.getString("resume_url"));
-                    candidates.setStatus(rs.getString("status"));
+
+
+                    String statusString = rs.getString("Status"); 
+        try {
+            candidates.setStatus(Enums.candidatesStatus.valueOf(statusString)); //convert string to enum
+        } catch (IllegalArgumentException e) {
+            System.out.println("invalid status value: " + statusString);
+            candidates.candidateStatus(Enums.candidatesStatus.UNKNOWN);
+            }
+                
                     candidates.setregistrationDate(rs.getDate("registration_date")); 
                     
                     return candidates;  // Return the populated Candidates object

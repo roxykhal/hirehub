@@ -6,7 +6,7 @@ public class Offers {
 
     private int offerID;
     private int applicationID;
-    private boolean salary;
+    private BigDecimal salary;
     private Date startDate;
     private String status;
     //constructor
@@ -15,7 +15,7 @@ public class Offers {
 
     }
 
-    public Offers(int offerID, int applicationID, boolean salary, Date startDate, String status) {
+    public Offers(int offerID, int applicationID, BigDecimal salary, Date startDate, String status) {
         this.offerID = offerID;
         this.applicationID = applicationID;
         this.salary = salary;

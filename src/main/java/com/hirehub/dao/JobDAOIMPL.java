@@ -66,7 +66,7 @@ public class JobDAOIMPL implements JobDAO {
 
     @Override
     public void delete(int id) {
-        String sql = "DELETE FROM screeningQuestions WHERE job_id = ?";
+        String sql = "DELETE FROM jobs WHERE job_id = ?";
         try(PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(1, id);
             pstmt.executeUpdate();
@@ -97,7 +97,7 @@ public class JobDAOIMPL implements JobDAO {
 
         List<Job>job = new ArrayList<>();
 
-        String sql = "SELECT * FROM job ORDER BY registration_date DESC";
+        String sql = "SELECT * FROM jobs ORDER BY registration_date DESC";
 
         try (Statement stmt = connection.createStatement();
         ResultSet rs = stmt.executeQuery(sql)) {

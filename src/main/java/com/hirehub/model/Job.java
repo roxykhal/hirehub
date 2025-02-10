@@ -141,7 +141,7 @@ public class Job implements Serializable {
         return createdBy;
     }
 
-    public void createdBy(Integer createdBy) {
+    public void setCreatedBy(Integer createdBy) {
         this.createdBy = createdBy;
     }
 

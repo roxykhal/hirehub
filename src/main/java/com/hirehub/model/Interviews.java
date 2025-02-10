@@ -2,13 +2,15 @@
 package com.hirehub.model;
 import java.util.Date;
 
+import com.hirehub.model.Enums.interviewStatus;
+
 public class Interviews {
 
     private int interviewID;
     private int applicationID;
     private Date interviewDate;
     private String feedback;
-    private String status;
+    private interviewStatus status;
 
     //constructor
 
@@ -59,11 +61,11 @@ public class Interviews {
         this.feedback = feedback;
     }
 
-    public String getstatus() {
+    public interviewStatus getstatus() {
         return status;
     }
 
-    public void setstatus(String status) {
+    public void setstatus(interviewStatus status) {
         this.status = status;
     }
 

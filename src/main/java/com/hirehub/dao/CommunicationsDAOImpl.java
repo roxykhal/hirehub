@@ -17,7 +17,7 @@ import com.hirehub.util.DatabaseConnection;
 
      @Override
     public void add(Communications communications) {
-        String sql = "INSERT INTO communications (application_id, sender_id, recipient_id, message, sent_date, type) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO communications (application_id, sender_id, recipient_id, type, message, sent_date) VALUES (?, ?, ?, ?, ?, ?)";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setInt(1, communications.getapplicationID());
@@ -64,7 +64,7 @@ import com.hirehub.util.DatabaseConnection;
 
     @Override
     public void delete(Communications communications) {
-        String sql = "DELETE FROM communications WHERE application_id = ?";
+        String sql = "DELETE FROM communications WHERE comunication_id = ?";
 
         try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(1, communications.getapplicationID());

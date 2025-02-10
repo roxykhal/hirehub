@@ -24,7 +24,7 @@ import java.io.Serializable;;
         }
 
     //default constructor 
-    public Candidates(int id, String resumeUrl, String firstName, String lastName, String email, String phoneNumber, Object object) {
+    public Candidates(int id, String resumeUrl, String firstName, String lastName, String email, String phoneNumber) {
         this.registrationDate = new Date();
         this.createdAt = new Date();
         this.Status = CandidateStatus.ACTIVE;
