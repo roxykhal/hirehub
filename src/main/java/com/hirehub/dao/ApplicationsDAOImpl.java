@@ -17,7 +17,7 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
 
     @Override
     public void add(Applications applications) {
-        String sql = "INSERT INTO applications (job_id, candidate_id, application_date, status) VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO applications (job_id, candidate_id, application_date, status, status_id, current_salary, expected_salary, notice_period, cover_letter) " + " VALUES (?, ?, ?, ?)";
 
         try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setInt(1, applications.getjobID());
