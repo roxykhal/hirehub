@@ -17,13 +17,18 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
 
     @Override
     public void add(Applications applications) {
-        String sql = "INSERT INTO applications (job_id, candidate_id, application_date, status, status_id, current_salary, expected_salary, notice_period, cover_letter) " + " VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO applications (job_id, candidate_id, application_date, status_id, current_salary, expected_salary, notice_period, cover_letter) " + " VALUES (?, ?, ?, ?)";
 
         try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setInt(1, applications.getjobID());
             pstmt.setInt(2, applications.getcandidateID());
             pstmt.setTimestamp(3, new Timestamp(applications.getapplicationDate().getTime())); //convert Date to Timestamp for sql
-            pstmt.setString(4, applications.getStatus().name()); //convert enum to string
+            //ordinal will return the index of the enum statuses
+            pstmt.setInt(4, applications.getStatus().ordinal() + 1);
+            pstmt.setBigDecimal(5, applications.getCurrentSalary());
+            pstmt.setBigDecimal(6, applications.getExpectedSalary());
+            pstmt.setInt(7, applications.getnoticePeriod());
+            pstmt.setString(8, applications.getcoverLetter());
 
             pstmt.executeUpdate();
 
