@@ -17,7 +17,7 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
 
     @Override
     public void add(Applications applications) {
-        String sql = "INSERT INTO applications (job_id, candidate_id, application_date, status_id, current_salary, expected_salary, notice_period, cover_letter) " + " VALUES (?, ?, ?, ?)";
+        String sql = "INSERT INTO applications (job_id, candidate_id, application_date, status_id, current_salary, expected_salary, notice_period, cover_letter) " + " VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setInt(1, applications.getjobID());
@@ -59,7 +59,8 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
 
     @Override
     public void update(Applications applications) {
-        String sql = "UPDATE applications SET job_id = ?, candidate_id = ?, application_date = ?, status = ? WHERE application_id = ?";
+        String sql = "UPDATE applications SET job_id = ?, candidate_id = ?, application_date = ?, status_id = ?, current_salary = ?, notice_period = ?, cover_letter = ? " +
+        "WHERE application_id = ?";
 
         try(PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(1, applications.getjobID());
