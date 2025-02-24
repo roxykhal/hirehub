@@ -62,11 +62,13 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
         String sql = "UPDATE applications SET job_id = ?, candidate_id = ?, application_date = ?, status_id = ?, current_salary = ?, notice_period = ?, cover_letter = ? " +
         "WHERE application_id = ?";
 
+        
         try(PreparedStatement pstmt = connection.prepareStatement(sql)) {
             pstmt.setInt(1, applications.getjobID());
             pstmt.setInt(2, applications.getcandidateID());
             pstmt.setTimestamp(3, new Timestamp(applications.getapplicationDate().getTime())); //convert Date to Timestamp for sql
-            pstmt.setString(4, applications.getStatus().name()); //convert enum to string
+            pstmt.setInt(4, applications.getStatus().ordinal() + 1); //convert enum to string
+            pstmt.setBigDecimal(5, applications.getCurrentSalary());
 
             pstmt.executeUpdate();
         } catch (SQLException e) {
