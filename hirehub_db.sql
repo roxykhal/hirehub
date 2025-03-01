@@ -18,6 +18,5 @@ CREATE TABLE users (
 
     -- ENUM is a special data type used to define a column that can only store one value from a predefined list of options--
     role ENUM('ADMIN', 'RECRUITER', 'HIRING MANAGER', 'INTERVIEWER') NOT NULL;
+);
 
-
-)

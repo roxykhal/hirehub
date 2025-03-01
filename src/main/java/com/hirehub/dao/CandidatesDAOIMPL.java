@@ -21,7 +21,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
     @Override
     //inserts a new candidate record into database
     public void add(Candidates candidates) {
-        String sql = "INSERT INTO candidates (firstName, lastName, emailAddress, phoneNumber, resumeURL, registrationDate) VALUES (?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO candidates (first_name, last_name, email, phone, resume_url, registration_date, status) VALUES (?, ?, ?, ?, ?, ?, ?)";
         try(PreparedStatement pstmt = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
             pstmt.setString(1, candidates.getfirstName());
             pstmt.setString(2, candidates.getlastName());
@@ -91,7 +91,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
 
             @Override
             public void update(Candidates candidates){
-                String sql = "UPDATE candidates SET first_name = ?, last_name = ?, email_address = ?, phone_number = ?, resume_url = ?, status = ?  WHERE candidate_id = ? ";
+                String sql = "UPDATE candidates SET first_name = ?, last_name = ?, email_address = ?, phone_number = ?, resume_url = ?, status = ?" + "WHERE candidate_id = ? ";
 
                 try (PreparedStatement pstmt = connection.prepareStatement(sql)) {
                     pstmt.setString(1, candidates.getfirstName());
@@ -101,6 +101,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                     pstmt.setInt(5, candidates.getId());
                     pstmt.setString(6, candidates.getStatus().name());
                     pstmt.setString(7, candidates.getphoneNumber());
+                    
                     pstmt.executeUpdate();
                 
                     }catch(SQLException e) {
