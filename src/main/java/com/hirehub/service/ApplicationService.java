@@ -21,7 +21,7 @@ public void updateApplication(Applications applications) {
 }
 
 public void deleteApplications(int id) {
-    applicationsDAO.delete(null);
+    applicationsDAO.delete(id);
 }
 
 public void getAllApplications(int id) {

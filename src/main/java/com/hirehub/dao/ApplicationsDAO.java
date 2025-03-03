@@ -7,7 +7,7 @@ import java.util.List;
 public interface ApplicationsDAO {
     void add(Applications applications);
     void update(Applications applications);
-    void delete(int applicationID);
+    void delete(int id);
 
     Applications getByID(int id);
 
