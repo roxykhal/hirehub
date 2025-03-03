@@ -18,7 +18,7 @@ public class Enums {
         ADMIN, RECRUITER, HIRING_MANAGER, INTERVIEWER
     }
 
-    public enum candidatesStatus {
+    public enum candidateStatus {
         ACTIVE, INACTIVE, BLACKLISTED, UNKNOWN
     }
 

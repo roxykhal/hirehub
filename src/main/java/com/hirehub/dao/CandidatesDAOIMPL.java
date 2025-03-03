@@ -177,10 +177,10 @@ public class CandidatesDAOimpl implements CandidatesDAO {
 
                     String statusString = rs.getString("Status"); 
         try {
-            candidates.setStatus(Enums.candidatesStatus.valueOf(statusString).toString()); //convert string to enum
+            candidates.setStatus(Enums.candidateStatus.valueOf(statusString).toString()); //convert string to enum
         } catch (IllegalArgumentException e) {
             System.out.println("invalid status value: " + statusString);
-            candidates.candidatesStatus(Enums.candidatesStatus.UNKNOWN).toString();
+            candidates.candidateStatus(Enums.candidateStatus.UNKNOWN).toString();
             }
                 
                     candidates.setregistrationDate(rs.getDate("registration_date")); 

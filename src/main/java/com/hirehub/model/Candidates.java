@@ -17,9 +17,9 @@ import java.io.Serializable;;
         private Date registrationDate;
         private Date createdAt;
         private Date updatedAt;
-        private CandidateStatus Status;
+        private candidateStatus Status;
 
-        public enum CandidateStatus {
+        public enum candidateStatus {
             ACTIVE, INACTIVE, BLACKLISTED
         }
 
@@ -27,7 +27,7 @@ import java.io.Serializable;;
     public Candidates(int id, String resumeUrl, String firstName, String lastName, String email, String phoneNumber) {
         this.registrationDate = new Date();
         this.createdAt = new Date();
-        this.Status = CandidateStatus.ACTIVE;
+        this.Status = candidateStatus.ACTIVE;
     }
 
     //Constructor with required field
@@ -115,7 +115,7 @@ import java.io.Serializable;;
         }
 
 
-    public CandidateStatus getStatus() {
+    public candidateStatus getStatus() {
         return Status;
     }
 
@@ -123,7 +123,7 @@ import java.io.Serializable;;
         if( status == null) {
             throw new IllegalArgumentException("Status cannot be null");
         }
-        this.Status = string;
+        this.Status = ;
     }
 
     public Date getCreatedAt() {

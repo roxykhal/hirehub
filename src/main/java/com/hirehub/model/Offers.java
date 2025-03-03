@@ -1,4 +1,5 @@
 package com.hirehub.model;
+import java.math.BigDecimal;
 import java.util.Date;
 
 
@@ -43,11 +44,11 @@ public class Offers {
 
     }
 
-    public boolean getsalary() {
+    public BigDecimal getsalary() {
         return salary;
     }
 
-    public void setsalary(boolean salary) {
+    public void setsalary(BigDecimal salary) {
         this.salary = salary;
     }
 
