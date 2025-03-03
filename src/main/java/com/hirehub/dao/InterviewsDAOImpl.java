@@ -48,7 +48,7 @@ public class InterviewsDAOImpl implements InterviewsDAO {
             pstmt.setInt(1, interview.getapplicationID());
             pstmt.setTimestamp(2, new Timestamp(interview.getinterviewDate().getTime())); // Convert Date to Timestamp for SQL
             pstmt.setString(3, interview.getfeedback());
-            pstmt.setString(4, interview.getstatus());
+            pstmt.setString(4, interview.getstatus().toString());
             pstmt.setInt(5, interview.getinterviewID());  // Using interview_id for the WHERE clause
 
             pstmt.executeUpdate();

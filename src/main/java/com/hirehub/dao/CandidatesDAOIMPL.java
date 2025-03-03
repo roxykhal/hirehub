@@ -164,7 +164,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
             //Helper method used to Convert ResultSet row into a Candidates object
             private Candidates extractCandidatesFromResultSet(ResultSet rs) throws SQLException {
                 // Create a new Candidates object
-                    Candidates candidates = new Candidates();
+                    Candidates candidates = new Candidates(0, null, null, null, null, null);
                     
                     // Populate the Candidate object with values from the ResultSet
                     candidates.setId(rs.getInt("candidate_id"));
@@ -177,10 +177,10 @@ public class CandidatesDAOimpl implements CandidatesDAO {
 
                     String statusString = rs.getString("Status"); 
         try {
-            candidates.setStatus(Enums.candidatesStatus.valueOf(statusString)); //convert string to enum
+            candidates.setStatus(Enums.candidatesStatus.valueOf(statusString).toString()); //convert string to enum
         } catch (IllegalArgumentException e) {
             System.out.println("invalid status value: " + statusString);
-            candidates.candidateStatus(Enums.candidatesStatus.UNKNOWN);
+            candidates.candidatesStatus(Enums.candidatesStatus.UNKNOWN).toString();
             }
                 
                     candidates.setregistrationDate(rs.getDate("registration_date")); 

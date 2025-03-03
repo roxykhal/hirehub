@@ -119,11 +119,11 @@ import java.io.Serializable;;
         return Status;
     }
 
-    public void setStatus(CandidateStatus status) {
+    public void setStatus(String status) {
         if( status == null) {
             throw new IllegalArgumentException("Status cannot be null");
         }
-        this.Status = status;
+        this.Status = string;
     }
 
     public Date getCreatedAt() {
