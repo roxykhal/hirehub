@@ -46,7 +46,7 @@ public class OffersDAOImpl implements OffersDAO {
             pstmt.setString(2, offers.getstatus());
             pstmt.setInt(3, offers.getapplicationID());
             pstmt.setDate(4, new java.sql.Date(offers.getstartDate().getTime()));
-            pstmt.setBoolean(5, offers.getsalary());
+            pstmt.setBigDecimal(5, offers.getsalary());
 
     pstmt.executeUpdate();
 

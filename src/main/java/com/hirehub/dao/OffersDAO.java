@@ -7,7 +7,7 @@ import java.util.List;
 public interface OffersDAO {
     void add(Offers offers);
     void update(Offers offers);
-    void delete(Offers offers);
+    void delete(int id);
 
     Offers getByID(int id);
 
