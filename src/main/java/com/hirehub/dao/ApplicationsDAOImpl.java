@@ -119,7 +119,7 @@ public class ApplicationsDAOImpl implements ApplicationsDAO {
         application.setjobID(rs.getInt("job_id"));
         application.setcandidateID(rs.getInt("candidate_id"));
         application.setapplicationDate(rs.getTimestamp("application_date"));
-        application.setStatus(rs.getString("status")); 
+        application.setStatus(rs.getString("status")toString()); 
     
         return application;
     }

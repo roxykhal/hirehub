@@ -23,7 +23,13 @@ public class Interviews {
         this.applicationID = applicationID;
         this.interviewDate = interviewDate;
         this.feedback = feedback;
-        this.status = status;
+       
+        try {
+            this.status = Enums.interviewStatus.valueOf(status);
+        } catch (IllegalArgumentException e) {
+            System.out.println("Invalid status: " + status);
+
+        }
     }
 
     //getters and setters 
