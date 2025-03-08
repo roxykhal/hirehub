@@ -17,7 +17,7 @@ import java.io.Serializable;;
         private Date registrationDate;
         private Date createdAt;
         private Date updatedAt;
-        private candidateStatus Status;
+        private candidateStatus status;
 
         public enum candidateStatus {
             ACTIVE, INACTIVE, BLACKLISTED
@@ -27,7 +27,7 @@ import java.io.Serializable;;
     public Candidates(int id, String resumeUrl, String firstName, String lastName, String email, String phoneNumber) {
         this.registrationDate = new Date();
         this.createdAt = new Date();
-        this.Status = candidateStatus.ACTIVE;
+        this.status = candidateStatus.ACTIVE;
     }
 
     //Constructor with required field
@@ -116,7 +116,7 @@ import java.io.Serializable;;
 
 
     public candidateStatus getStatus() {
-        return Status;
+        return status;
     }
 
     public void setStatus(String status) {
