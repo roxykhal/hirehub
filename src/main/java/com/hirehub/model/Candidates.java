@@ -123,7 +123,7 @@ import java.io.Serializable;;
         if( status == null) {
             throw new IllegalArgumentException("Status cannot be null");
         }
-        this.Status = ;
+
     }
 
     public Date getCreatedAt() {

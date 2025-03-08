@@ -10,6 +10,7 @@ public class Offers {
     private BigDecimal salary;
     private Date startDate;
     private String status;
+    
     //constructor
 
     public Offers() {
