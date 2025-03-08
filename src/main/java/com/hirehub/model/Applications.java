@@ -35,11 +35,9 @@ public Applications() {
 
 public Applications(int jobID, int candidateID, Date applicationDate, String status, int applicationID) {
     this(); // Calling the default constructor to initialize default values for optional fields
-    setjobID(jobID);
-    setcandidateID(candidateID);
-    setapplicationID(applicationID);
-    setapplicationDate(applicationDate != null ? applicationDate : new Date()); // Use current date if null
-    setstatus(status != null ? applicationStatus.valueOf(status) : applicationStatus.APPLIED); // Default to APPLIED if status is null
+    this.jobID = jobID;
+    this.candidateID = candidateID;
+    setstatus(status);
 }
 
 
