@@ -8,7 +8,7 @@ import java.io.Serializable;;
     public class Candidates implements Serializable {
         private static final long serialVersionUID = 1L;
 
-        private Integer id;
+        private int id;
         private String firstName;
         private String lastName;
         private String emailAddress;
@@ -17,17 +17,14 @@ import java.io.Serializable;;
         private Date registrationDate;
         private Date createdAt;
         private Date updatedAt;
-        private candidateStatus status;
+        private String status;
 
-        public enum candidateStatus {
-            ACTIVE, INACTIVE, BLACKLISTED
-        }
+        
 
-    //default constructor 
-    public Candidates(int id, String resumeUrl, String firstName, String lastName, String email, String phoneNumber) {
+    //default constructor, sets candidate as active
+    public Candidates(){
         this.registrationDate = new Date();
-        this.createdAt = new Date();
-        this.status = candidateStatus.ACTIVE;
+        this.status = "ACTIVE";
     }
 
     //Constructor with required field
