@@ -2,12 +2,11 @@ package com.hirehub.model;
 import java.util.Date;
 import java.io.Serializable;
 import java.math.BigDecimal;
-//import java.util.Objects;
+import java.util.Objects;
 import com.hirehub.model.Enums.applicationStatus;
 
 
 public class Applications implements Serializable {
-
     private static final long serialVersionUID = 1L;
 
 private Integer jobID;
@@ -28,6 +27,7 @@ private int applicationID;
 //Default Constructors
 
 public Applications() {
+    this.applicationDate = new Date();
     
 }
 

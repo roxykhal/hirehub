@@ -28,11 +28,12 @@ import java.io.Serializable;;
     }
 
     //Constructor with required field
-    public Candidates(String firstName, String lastName, String emailAdress, String phoneNumber) {
+    public Candidates(String firstName, String lastName, String emailAdress, String phoneNumber, String resumeURL) {
         setfirstName(firstName);
         setlastName(lastName);
         setemailAddress(emailAddress);
         setphoneNumber(phoneNumber);
+        setresumeURL(resumeURL);
     }
 
 
@@ -112,7 +113,7 @@ import java.io.Serializable;;
         }
 
 
-    public candidateStatus getStatus() {
+    public String getStatus() {
         return status;
     }
 
