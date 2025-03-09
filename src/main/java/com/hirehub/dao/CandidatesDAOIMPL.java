@@ -99,7 +99,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                     pstmt.setString(3, candidates.getemailAddress());
                     pstmt.setString(4, candidates.getresumeURL());
                     pstmt.setInt(5, candidates.getId());
-                    pstmt.setString(6, candidates.getStatus().name());
+                    pstmt.setString(6, candidates.getStatus().status());
                     pstmt.setString(7, candidates.getphoneNumber());
                     
                     pstmt.executeUpdate();
@@ -161,35 +161,35 @@ public class CandidatesDAOimpl implements CandidatesDAO {
             }
 
             
-            //Helper method used to Convert ResultSet row into a Candidates object
-            private Candidates extractCandidatesFromResultSet(ResultSet rs) throws SQLException {
-                // Create a new Candidates object
-                    Candidates candidates = new Candidates(0, null, null, null, null, null);
+        //     //Helper method used to Convert ResultSet row into a Candidates object
+        //     private Candidates extractCandidatesFromResultSet(ResultSet rs) throws SQLException {
+        //         // Create a new Candidates object
+        //             Candidates candidates = new Candidates(0, null, null, null, null, null);
                     
-                    // Populate the Candidate object with values from the ResultSet
-                    candidates.setId(rs.getInt("candidate_id"));
-                    candidates.setfirstName(rs.getString("first_name"));
-                    candidates.setlastName(rs.getString("last_name"));
-                    candidates.setemailAddress(rs.getString("email_address"));
-                    candidates.setphoneNumber(rs.getString("phone_number")); 
-                    candidates.setresumeURL(rs.getString("resume_url"));
+        //             // Populate the Candidate object with values from the ResultSet
+        //             candidates.setId(rs.getInt("candidate_id"));
+        //             candidates.setfirstName(rs.getString("first_name"));
+        //             candidates.setlastName(rs.getString("last_name"));
+        //             candidates.setemailAddress(rs.getString("email_address"));
+        //             candidates.setphoneNumber(rs.getString("phone_number")); 
+        //             candidates.setresumeURL(rs.getString("resume_url"));
 
 
-                    String statusString = rs.getString("Status"); 
-        try {
-            candidates.setStatus(Enums.candidateStatus.valueOf(statusString).toString()); //convert string to enum
-        } catch (IllegalArgumentException e) {
-            System.out.println("invalid status value: " + statusString);
-            candidates.candidateStatus(Enums.candidateStatus.UNKNOWN).toString();
-            }
+        //             String statusString = rs.getString("Status"); 
+        // try {
+        //     candidates.setStatus(Enums.candidateStatus.valueOf(statusString).toString()); //convert string to enum
+        // } catch (IllegalArgumentException e) {
+        //     System.out.println("invalid status value: " + statusString);
+        //     candidates.candidateStatus(Enums.candidateStatus.UNKNOWN).toString();
+        //     }
                 
-                    candidates.setregistrationDate(rs.getDate("registration_date")); 
+        //             candidates.setregistrationDate(rs.getDate("registration_date")); 
                     
-                    return candidates;  // Return the populated Candidates object
-                }
+        //             return candidates;  // Return the populated Candidates object
+        //         }
 
 
-        }
+        // }
     
 
 
