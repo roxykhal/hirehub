@@ -3,6 +3,7 @@ import com.hirehub.model.Communications;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.List;
+import org.springframework.jdbc.core.RowMapper;
 import com.hirehub.util.DatabaseConnection;
 
 
@@ -84,7 +85,7 @@ import com.hirehub.util.DatabaseConnection;
             ResultSet rs = pstmt.executeQuery();
 
             if (rs.next()) {
-                return extractCommunicationsFromResultSet(rs);
+                return communicationsRowMapper.mapRow(rs, rs.getRow());
             }
 
         } catch (SQLException e) {
@@ -103,7 +104,7 @@ import com.hirehub.util.DatabaseConnection;
              ResultSet rs = stmt.executeQuery(sql)) {
 
             while (rs.next()) {
-                communicationsList.add(extractCommunicationsFromResultSet(rs));
+                communicationsList.add(communicationsRowMapper.mapRow(rs, rs.getRow()));
             }
 
         } catch (SQLException e) {
@@ -114,7 +115,9 @@ import com.hirehub.util.DatabaseConnection;
     }
 
     // Helper method to convert a ResultSet row into a Communications object
-    private Communications extractCommunicationsFromResultSet(ResultSet rs) throws SQLException {
+    private RowMapper<Communications> communicationsRowMapper = new RowMapper<Communications>() {
+        @Override
+        public Communications mapRow(ResultSet rs, int rowNum) throws SQLException {
         Communications communications = new Communications();
 
         communications.setapplicationID(rs.getInt("application_id"));
@@ -126,6 +129,7 @@ import com.hirehub.util.DatabaseConnection;
 
         return communications;
     }
-}
+};
+    }
     
 
