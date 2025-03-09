@@ -5,6 +5,9 @@ import com.hirehub.model.Enums;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.List;
+
+import javax.naming.spi.DirStateFactory.Result;
+
 import com.hirehub.util.DatabaseConnection;
 import org.springframework.jdbc.core.RowMapper;
 //store and return list of job objects
@@ -60,7 +63,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                return extractCandidatesFromResultSet(rs);
+                return candidateRowMapper.mapRow(rs, 1);
             }
         } catch (SQLException e) {
             e.printStackTrace();;
@@ -160,36 +163,17 @@ public class CandidatesDAOimpl implements CandidatesDAO {
         
             }
 
+            private RowMapper<Candidates> candidateRowMapper = new RowMapper<Candidates>() {
+                @Override
+                public Candidates mapRow(ResultSet rs, int rowNum) throws SQLException {
+                    Candidates candidates = new Candidates()
+
+                               
+                }
+            };
+
             
-        //     //Helper method used to Convert ResultSet row into a Candidates object
-        //     private Candidates extractCandidatesFromResultSet(ResultSet rs) throws SQLException {
-        //         // Create a new Candidates object
-        //             Candidates candidates = new Candidates(0, null, null, null, null, null);
-                    
-        //             // Populate the Candidate object with values from the ResultSet
-        //             candidates.setId(rs.getInt("candidate_id"));
-        //             candidates.setfirstName(rs.getString("first_name"));
-        //             candidates.setlastName(rs.getString("last_name"));
-        //             candidates.setemailAddress(rs.getString("email_address"));
-        //             candidates.setphoneNumber(rs.getString("phone_number")); 
-        //             candidates.setresumeURL(rs.getString("resume_url"));
-
-
-        //             String statusString = rs.getString("Status"); 
-        // try {
-        //     candidates.setStatus(Enums.candidateStatus.valueOf(statusString).toString()); //convert string to enum
-        // } catch (IllegalArgumentException e) {
-        //     System.out.println("invalid status value: " + statusString);
-        //     candidates.candidateStatus(Enums.candidateStatus.UNKNOWN).toString();
-        //     }
-                
-        //             candidates.setregistrationDate(rs.getDate("registration_date")); 
-                    
-        //             return candidates;  // Return the populated Candidates object
-        //         }
-
-
-        // }
+         }
     
 
 
