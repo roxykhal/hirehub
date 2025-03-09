@@ -154,7 +154,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
 
                     //if matching candidate found, it maps the results to a candidates object using the extract method
                     if (rs.next()) {
-                        return extractCandidatesFromResultSet(rs);
+                        return candidateRowMapper.mapRow(rs, rs.getRow());
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
