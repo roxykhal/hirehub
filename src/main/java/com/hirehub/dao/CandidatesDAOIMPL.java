@@ -2,11 +2,11 @@
 package com.hirehub.dao;
 import com.hirehub.model.Candidates;
 import com.hirehub.model.Enums;
-
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.List;
 import com.hirehub.util.DatabaseConnection;
+import org.springframework.jdbc.core.RowMapper;
 //store and return list of job objects
 
 
@@ -28,7 +28,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
             pstmt.setString(3, candidates.getemailAddress());
             pstmt.setString(4, candidates.getphoneNumber());
             pstmt.setString(5, candidates.getresumeURL());
-            pstmt.setString(6, candidates.getStatus().name());
+            pstmt.setString(6, candidates.getStatus());
             pstmt.setDate(7, new java.sql.Date(candidates.getregistrationDate().getTime()));
 
             
