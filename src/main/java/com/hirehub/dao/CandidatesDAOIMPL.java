@@ -6,8 +6,6 @@ import java.util.ArrayList;
 import java.sql.*;
 import java.util.List;
 
-import javax.naming.spi.DirStateFactory.Result;
-
 import com.hirehub.util.DatabaseConnection;
 import org.springframework.jdbc.core.RowMapper;
 //store and return list of job objects

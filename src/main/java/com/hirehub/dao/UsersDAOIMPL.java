@@ -3,6 +3,7 @@ import com.hirehub.model.Users;
 import java.util.ArrayList;
 import java.sql.*;
 import java.util.List;
+import org.springframework.jdbc.core.RowMapper;
 import com.hirehub.util.DatabaseConnection;
 
 
@@ -117,8 +118,11 @@ public class UsersDAOIMPL implements UsersDAO {
                 }
             
 
-    //Helper method used to Convert ResultSet row into a users object
-    private Users extractUsersFromResultSet(ResultSet rs) throws SQLException {
+    //RowMapper to map ResultSet to user object
+    private RowMapper<Users> usersRowMapper = new RowMapper <Users>() {
+        @Override
+        public Users mapRow(ResultSet rs, int rowNum) throws SQLException {
+
         // Create a new users object
             Users users = new Users();
             
@@ -131,7 +135,8 @@ public class UsersDAOIMPL implements UsersDAO {
             
             return users;  // Return the populated user object
         }
-    }
+    };
+}
 
 
 
