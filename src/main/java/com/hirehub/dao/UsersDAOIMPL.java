@@ -91,7 +91,7 @@ public class UsersDAOIMPL implements UsersDAO {
         ResultSet rs = stmt.executeQuery(sql)) {
 
             while(rs.next()) {
-                users.add(extractUsersFromResultSet(rs));
+                users.add(usersRowMapper.mapRow(rs, rs.getRow()));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -108,7 +108,7 @@ public class UsersDAOIMPL implements UsersDAO {
             pstmt.setInt(1, id);
             ResultSet rs = pstmt.executeQuery();
             if (rs.next()) {
-                return extractUsersFromResultSet(rs);
+                return usersRowMapper.mapRow(rs, rs.getRow());
                             }
                         } catch (SQLException e) {
                             e.printStackTrace();
