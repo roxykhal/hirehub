@@ -84,7 +84,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                 ResultSet rs = stmt.executeQuery(sql)) {
 
                     while(rs.next()) {
-                        candidates.add(extractCandidatesFromResultSet(rs));
+                        candidates.add(candidateRowMapper.mapRow(rs, rs.getRow()));
                     } 
                 } catch (SQLException e) {
                     e.printStackTrace();
@@ -102,7 +102,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                     pstmt.setString(3, candidates.getemailAddress());
                     pstmt.setString(4, candidates.getresumeURL());
                     pstmt.setInt(5, candidates.getId());
-                    pstmt.setString(6, candidates.getStatus().status());
+                    pstmt.setString(6, candidates.getStatus());
                     pstmt.setString(7, candidates.getphoneNumber());
                     
                     pstmt.executeUpdate();
@@ -135,7 +135,7 @@ public class CandidatesDAOimpl implements CandidatesDAO {
                     ResultSet rs = pstmt.executeQuery();
                     
                     if (rs.next()) {
-                        return extractCandidatesFromResultSet(rs);
+                        return candidateRowMapper.mapRow(rs, rs.getRow());
                     }
                 } catch (SQLException e) {
                     e.printStackTrace();
