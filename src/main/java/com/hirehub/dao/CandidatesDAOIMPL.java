@@ -166,8 +166,16 @@ public class CandidatesDAOimpl implements CandidatesDAO {
             private RowMapper<Candidates> candidateRowMapper = new RowMapper<Candidates>() {
                 @Override
                 public Candidates mapRow(ResultSet rs, int rowNum) throws SQLException {
-                    Candidates candidates = new Candidates()
-
+                    Candidates candidates = new Candidates();
+                    candidates.setId(rs.getInt("candidate_id"));
+                    candidates.setfirstName("first_name");
+                    candidates.setlastName("last_name");
+                    candidates.setemailAddress("email_address");
+                    candidates.setresumeURL("resume_url");
+                    candidates.setphoneNumber("phone_number");
+                    candidates.setStatus("candidate_status");
+                    
+                    return candidates;
                                
                 }
             };
