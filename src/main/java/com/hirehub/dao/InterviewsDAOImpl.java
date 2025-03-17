@@ -7,6 +7,8 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.jdbc.core.RowMapper;
+
 public class InterviewsDAOImpl implements InterviewsDAO {
 
     private Connection connection;
@@ -110,7 +112,9 @@ public class InterviewsDAOImpl implements InterviewsDAO {
     }
 
     // Helper method to convert a ResultSet row into an Interviews object
-    private Interviews extractInterviewFromResultSet(ResultSet rs) throws SQLException {
+    private RowMapper<Interviews> interviewsRowMapper = new RowMapper<Interviews>() {
+        @Override
+        public Interviews mapRow(ResultSet rs, int rowNum) {
         Interviews interview = new Interviews();
 
         interview.setinterviewID(rs.getInt("interview_id"));
@@ -121,4 +125,5 @@ public class InterviewsDAOImpl implements InterviewsDAO {
 
         return interview;
     }
+};
 }

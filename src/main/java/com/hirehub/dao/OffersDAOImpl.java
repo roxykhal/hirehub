@@ -5,6 +5,7 @@ import com.hirehub.util.DatabaseConnection;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.jdbc.core.RowMapper;
 
 
 public class OffersDAOImpl implements OffersDAO {
@@ -107,12 +108,16 @@ public class OffersDAOImpl implements OffersDAO {
         return offersList; 
         
         }    
-        
-    private Offers extractOffersQuestionsFromResultSet(ResultSet rs) throws SQLException {
-    Offers offers = new Offers();
-
-    offers.setofferID(rs.getInt("offer_id"));
-
-    return offers;
+     
     }
-}
+
+ // Helper method to convert a ResultSet row into an Interviews object
+    private RowMapper<Offers> offersRowMapper = new RowMapper<Offers>() {
+        @Override
+        public Offers mapRow(ResultSet rs, int rowNum) {
+        Offers offers = new Offers();
+
+        
+    }
+    };
+    }
