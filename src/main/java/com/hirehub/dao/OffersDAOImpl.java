@@ -109,7 +109,6 @@ public class OffersDAOImpl implements OffersDAO {
         
         }    
      
-    }
 
  // Helper method to convert a ResultSet row into an Interviews object
     private RowMapper<Offers> offersRowMapper = new RowMapper<Offers>() {
@@ -117,7 +116,22 @@ public class OffersDAOImpl implements OffersDAO {
         public Offers mapRow(ResultSet rs, int rowNum) {
         Offers offers = new Offers();
 
+        offers.setofferID(rs.getInt("offer_id"));
+        offers.setstatus(rs.getString("offer_status"));
+        offers.setsalary(rs.getBigDecimal("salary"));
+
+        return offers;
+        
+        
         
     }
     };
+
+
+
+
+    @Override
+    public void delete(int id) {
+        // TODO Auto-generated method stub
+        throw new UnsupportedOperationException("Unimplemented method 'delete'");
     }
